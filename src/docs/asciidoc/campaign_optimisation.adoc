@@ -1,0 +1,37 @@
+== Campaign Groups
+
+include::{snippets}/campaign-groups/curl-request.adoc[]
+
+include::{snippets}/campaign-groups/http-request.adoc[]
+
+
+include::{snippets}/campaign-groups/http-response.adoc[]
+
+include::{snippets}/campaign-groups/response-fields.adoc[]
+
+
+== Campaigns
+
+include::{snippets}/campaigns/curl-request.adoc[]
+
+include::{snippets}/campaigns/http-request.adoc[]
+include::{snippets}/campaigns/path-parameters.adoc[]
+
+include::{snippets}/campaigns/http-response.adoc[]
+
+include::{snippets}/campaigns/response-fields.adoc[]
+
+
+== Optimisations
+
+include::{snippets}/optimisations/curl-request.adoc[]
+
+include::{snippets}/optimisations/http-request.adoc[]
+include::{snippets}/optimisations/path-parameters.adoc[]
+
+include::{snippets}/optimisations/http-response.adoc[]
+
+include::{snippets}/optimisations/response-fields.adoc[]
+
+
+
