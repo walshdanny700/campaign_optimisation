@@ -34,4 +34,12 @@ include::{snippets}/optimisations/http-response.adoc[]
 include::{snippets}/optimisations/response-fields.adoc[]
 
 
+== Recommendations
+include::{snippets}/recommendations/curl-request.adoc[]
 
+include::{snippets}/recommendations/http-request.adoc[]
+include::{snippets}/recommendations/path-parameters.adoc[]
+
+include::{snippets}/recommendations/http-response.adoc[]
+
+include::{snippets}/recommendations/response-fields.adoc[]
