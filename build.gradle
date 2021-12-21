@@ -1,7 +1,7 @@
 plugins {
 	id 'org.springframework.boot' version '2.6.1'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-	id 'org.asciidoctor.convert' version '1.5.8'
+	id 'org.asciidoctor.convert' version '2.4.0'
 	id 'java'
 	id 'war'
 }
@@ -9,6 +9,7 @@ plugins {
 group = 'com.optily'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
+
 
 configurations {
 	compileOnly {
@@ -21,7 +22,8 @@ repositories {
 }
 
 ext {
-	set('snippetsDir', file("build/generated-snippets"))
+	snippetsDir = file('build/generated-snippets')
+	restDocsProjectVersion =  '2.0.5.RELEASE'
 }
 
 dependencies {
@@ -34,8 +36,8 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
-	asciidoctor 'org.springframework.restdocs:spring-restdocs-asciidoctor:{project-version}'
+	asciidoctor "org.springframework.restdocs:spring-restdocs-asciidoctor:$restDocsProjectVersion"
+	testImplementation "org.springframework.restdocs:spring-restdocs-mockmvc:$restDocsProjectVersion"
 }
 
 test {
@@ -44,13 +46,16 @@ test {
 }
 
 asciidoctor {
+
 	inputs.dir snippetsDir
 	dependsOn test
+
 }
 
-bootJar {
+bootWar {
 	dependsOn asciidoctor
-	from ("${asciidoctor.outputDir}/html5") {
-		into 'static/docs'
+	copy {
+		from "${asciidoctor.outputDir}/html5"
+		into 'src/main/resources/static/docs'
 	}
 }

@@ -9,6 +9,7 @@ import com.optily.campaign_optimisation.repository.ICampaignGroupRepository;
 import com.optily.campaign_optimisation.repository.ICampaignRepository;
 import com.optily.campaign_optimisation.repository.IOptimisationRepository;
 import com.optily.campaign_optimisation.repository.IRecommendationRepository;
+import com.optily.campaign_optimisation.services.IOptimisationService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -61,6 +62,10 @@ public class CampaignGroupControllerTest {
     @MockBean
     private IRecommendationRepository recommendationRepository;
 
+    @MockBean
+    private IOptimisationService optimisationService;
+
+
     private CampaignGroup campaignGroup;
 
     private Campaign campaign;
@@ -99,36 +104,36 @@ public class CampaignGroupControllerTest {
     }
 
     @Test
-    public void givenZeroCampaignGroups_WhenGetRequest_thenReturnNotFound() throws Exception{
+    void givenZeroCampaignGroups_WhenGetRequest_thenReturnNotFound() throws Exception{
         given(campaignGroupRepository.findAll()).willReturn(Collections.emptyList());
 
-        mockMvc.perform(get("/api/v1/campaigngroups"))
+        mockMvc.perform(get("/api/v1/campaigngroups/list"))
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound());
     }
 
     @Test
-    public void givenCampaignGroups_whenGetCampaignGroups_thenReturnJsonArray() throws Exception{
+    void givenCampaignGroups_whenGetCampaignGroups_thenReturnJsonArray() throws Exception{
         given(this.campaignGroupRepository.findAll()).willReturn(Collections.singletonList(this.campaignGroup));
 
         FieldDescriptor[] campaignGroup = new FieldDescriptor[] {
                 fieldWithPath("id").description("Unique Identifier of Campaign Group"),
                 fieldWithPath("name").description("Name of Campaign Group") };
 
-        mockMvc.perform(get("/api/v1/campaigngroups"))
+        mockMvc.perform(get("/api/v1/campaigngroups/list"))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[0].name", is(this.campaignGroup.getName())))
                 .andExpect(jsonPath("$.[0].id", is(this.campaignGroup.getId()), Long.class))
-                .andDo(document("campaign-groups", responseFields(
+                .andDo(document("campaign-groups/list", responseFields(
                         fieldWithPath("[]")
                                 .description("An array of Campaign Groups"))
                                 .andWithPrefix("[].", campaignGroup)));
     }
 
     @Test
-    public void givenCampaignGroupId_whenCampaignsForGroup_thenReturnJsonArray() throws Exception{
+    void givenCampaignGroupId_whenCampaignsForGroup_thenReturnJsonArray() throws Exception{
         given(this.campaignRepository.findByCampaignGroupId(any())).willReturn(Collections.singletonList(this.campaign));
 
         FieldDescriptor[] campaignFieldDescriptor = new FieldDescriptor[] {
@@ -140,7 +145,7 @@ public class CampaignGroupControllerTest {
                 fieldWithPath("revenue").description("The revenue for a given campaign")
         };
 
-        mockMvc.perform(RestDocumentationRequestBuilders.get("/api/v1/campaigngroups/{campaignGroupId}/campaigns", 1))
+        mockMvc.perform(RestDocumentationRequestBuilders.get("/api/v1/campaigngroups/{campaignGroupId}/campaigns/list", 1))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
@@ -150,7 +155,7 @@ public class CampaignGroupControllerTest {
                 .andExpect(jsonPath("$.[0].budget", is(this.campaign.getBudget()), BigDecimal.class))
                 .andExpect(jsonPath("$.[0].impressions", is(this.campaign.getImpressions())))
                 .andExpect(jsonPath("$.[0].revenue", is(this.campaign.getRevenue()), BigDecimal.class))
-                .andDo(document("campaigns",
+                .andDo(document("campaigns/list",
                         responseFields(fieldWithPath("[]")
                                 .description("An array of Campaigns"))
                                 .andWithPrefix("[].", campaignFieldDescriptor),
@@ -160,19 +165,18 @@ public class CampaignGroupControllerTest {
     }
 
     @Test
-    public void givenCampaignGroupId_whenZeroCampaignsForGroup_thenReturnNotFound() throws Exception{
+    void givenCampaignGroupId_whenZeroCampaignsForGroup_thenReturnNotFound() throws Exception{
         given(this.campaignRepository.findByCampaignGroupId(any())).willReturn(Collections.emptyList());
 
-        mockMvc.perform(get("/api/v1/campaigngroups/1/campaigns"))
+        mockMvc.perform(get("/api/v1/campaigngroups/1/campaigns/list"))
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound());
 
     }
 
     @Test
-    public void givenCampaignGroupId_whenOptimisationsForGroup_thenReturnJsonArray() throws Exception{
-        given(this.optimisationRepository.findByCampaignGroupIdAndStatus(any(), any())).willReturn(java.util.Optional.ofNullable(this.optimisation));
-
+    void givenCampaignGroupId_whenOptimisationsForGroup_thenReturnJsonArray() throws Exception{
+        given(this.optimisationService.getLatestOptimisation(any())).willReturn(java.util.Optional.ofNullable(this.optimisation));
 
         FieldDescriptor[] optimisations = new FieldDescriptor[] {
                 fieldWithPath("id").description("Unique Identifier for a Campaign"),
@@ -180,8 +184,7 @@ public class CampaignGroupControllerTest {
                 fieldWithPath("status").description("The status of the optimisation. Either it is applied or not applied to the Campaign Group")
         };
 
-
-        mockMvc.perform(RestDocumentationRequestBuilders.get("/api/v1/campaigngroups/{campaignGroupId}/optimisations", 1))
+        mockMvc.perform(RestDocumentationRequestBuilders.get("/api/v1/campaigngroups/{campaignGroupId}/optimisations/latest", 1))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
@@ -197,10 +200,10 @@ public class CampaignGroupControllerTest {
 
 
     @Test
-    public void givenCampaignGroupId_whenZeroOptimisationsForGroup_thenReturnNotFound() throws Exception{
-        given(this.optimisationRepository.findByCampaignGroupIdAndStatus(any(), any())).willReturn(Optional.empty());
+    void givenCampaignGroupId_whenZeroOptimisationsForGroup_thenReturnNotFound() throws Exception{
+        given(this.optimisationService.getLatestOptimisation(any())).willReturn(Optional.empty());
 
-        mockMvc.perform(RestDocumentationRequestBuilders.get("/api/v1/campaigngroups/{campaignGroupId}/campaigns", 1))
+        mockMvc.perform(RestDocumentationRequestBuilders.get("/api/v1/campaigngroups/{campaignGroupId}/optimisations/latest", 1))
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound());
 
@@ -208,8 +211,8 @@ public class CampaignGroupControllerTest {
 
 
     @Test
-    public void givenOptimisationId_whenRecommendationsForOptimisation_thenReturnJsonArray() throws Exception{
-        given(this.recommendationRepository.findByOptimisationId(any())).willReturn(Collections.singletonList(this.recommendation));
+    void givenOptimisationId_whenRecommendationsForOptimisation_thenReturnJsonArray() throws Exception{
+        given(this.optimisationService.getLatestRecommendations(any())).willReturn(Collections.singletonList(this.recommendation));
 
         FieldDescriptor[] recommendationFieldDescriptor = new FieldDescriptor[] {
                 fieldWithPath("id").description("Unique Identifier for a Recommendation"),
@@ -218,7 +221,7 @@ public class CampaignGroupControllerTest {
                 fieldWithPath("recommendedBudget").description("The recommended budget of this optimisation")
         };
 
-        mockMvc.perform(RestDocumentationRequestBuilders.get("/api/v1/optimisations/{optimisationId}/recommendations", 1))
+        mockMvc.perform(RestDocumentationRequestBuilders.get("/api/v1/optimisations/{optimisationId}/recommendations/latest", 1))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
@@ -237,12 +240,16 @@ public class CampaignGroupControllerTest {
     }
 
     @Test
-    public void givenOptimisationId_whenZeroRecommendationsForOptimisation_thenReturnNotFound() throws Exception{
-        given(this.recommendationRepository.findByOptimisationId(any())).willReturn(Collections.emptyList());
+    void givenOptimisationId_whenZeroRecommendationsForOptimisation_thenReturnNotFound() throws Exception{
+        given(this.optimisationService.getLatestRecommendations(any())).willReturn(Collections.emptyList());
 
-        mockMvc.perform(RestDocumentationRequestBuilders.get("/api/v1/optimisations/{optimisationId}/recommendations", 1))
+        mockMvc.perform(RestDocumentationRequestBuilders.get("/api/v1/optimisations/{optimisationId}/recommendations/latest", 1))
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound());
 
     }
+
+
+
+
 }

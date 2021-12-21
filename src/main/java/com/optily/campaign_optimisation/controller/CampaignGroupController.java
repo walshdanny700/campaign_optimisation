@@ -50,7 +50,7 @@ public class CampaignGroupController implements ICampaignGroupController{
     }
 
     @Override
-    @GetMapping(value = "/campaigngroups", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/campaigngroups/list", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<CampaignGroup>> getCampaignGroups(){
         List<CampaignGroup> campaignGroups = this.campaignGroupRepository.findAll();
         var headers = new HttpHeaders();
@@ -60,7 +60,7 @@ public class CampaignGroupController implements ICampaignGroupController{
     }
 
     @Override
-    @GetMapping(value = "/campaigngroups/{campaignGroupId}/campaigns", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/campaigngroups/{campaignGroupId}/campaigns/list", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Campaign>> getCampaignsForGroup(@PathVariable Long campaignGroupId) {
         List<Campaign> campaigns = this.campaignRepository.findByCampaignGroupId(campaignGroupId);
         var headers = new HttpHeaders();
@@ -88,6 +88,7 @@ public class CampaignGroupController implements ICampaignGroupController{
         return  recommendations.isEmpty()  ? ResponseEntity.notFound().headers(headers).build()
                 : ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).headers(headers).body(recommendations);
     }
+
 
 
 

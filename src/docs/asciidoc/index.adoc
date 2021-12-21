@@ -1,0 +1,17 @@
+= API Document
+
+== Campaign Groups
+
+operation::campaign-groups/list[snippets='curl-request,http-request,http-response,response-fields']
+
+
+== Campaigns
+
+operation::campaigns/list[snippets='curl-request,http-request,path-parameters,http-response,response-fields']
+
+== Optimisations
+
+operation::optimisations/[snippets='curl-request,http-request,path-parameters,http-response,response-fields']
+
+== Recommendations
+operation::recommendations/[snippets='curl-request,http-request,path-parameters,http-response,response-fields']
