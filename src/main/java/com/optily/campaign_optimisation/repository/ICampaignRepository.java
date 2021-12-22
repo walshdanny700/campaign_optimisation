@@ -17,5 +17,5 @@ public interface ICampaignRepository  extends JpaRepository<Campaign, Long> {
 
     @Modifying
     @Query("UPDATE Campaign c SET c.budget = :budget WHERE c.id = :campaignId")
-    void updateCampaign(@Param("campaignId") Long campaignId, @Param("budget") BigDecimal budget);
+    int updateCampaign(@Param("campaignId") Long campaignId, @Param("budget") BigDecimal budget);
 }

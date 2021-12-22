@@ -44,7 +44,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 @WebMvcTest(CampaignGroupController.class)
 @AutoConfigureRestDocs(outputDir = "build/generated-snippets")
-public class CampaignGroupControllerTest {
+class CampaignGroupControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -100,7 +100,7 @@ public class CampaignGroupControllerTest {
                 .id(1L)
                 .campaignId(this.campaign.getId())
                 .optimisationId(this.optimisation.getId())
-                .recommendedBudget(BigDecimal.ONE).build();
+                .recommendedBudget(BigDecimal.TEN).build();
     }
 
     @Test
@@ -250,6 +250,27 @@ public class CampaignGroupControllerTest {
     }
 
 
+    @Test
+    void givenOptimisationId_whenApplyRecommendation_thenCampaignBudgetUpdated() throws Exception{
+        given(this.optimisationRepository.findById(any())).willReturn(Optional.of(this.optimisation));
+        given(this.optimisationService.getLatestRecommendations(any())).willReturn(Collections.singletonList(this.recommendation));
+        this.campaign.setBudget(this.recommendation.getRecommendedBudget());
+        given(this.optimisationService.applyRecommendations(any(), any())).willReturn(1);
 
+
+        mockMvc.perform(RestDocumentationRequestBuilders.post("/api/v1/optimisations/{optimisationId}/recommendations/apply", this.optimisation.getId()))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.message", is("Campaigns Updated 1")))
+                .andDo(document("apply-recommendations",
+                        responseFields(fieldWithPath("message")
+                                .description("Returns Number of rows updated for Campaigns")),
+                        pathParameters(
+                                parameterWithName("optimisationId").description("The Given Optimisation ID ")
+                        )));
+
+
+    }
 
 }

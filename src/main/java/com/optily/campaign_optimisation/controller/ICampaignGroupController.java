@@ -7,6 +7,7 @@ import com.optily.campaign_optimisation.entity.Recommendation;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
+import java.util.Map;
 
 public interface ICampaignGroupController {
     ResponseEntity<List<CampaignGroup>> getCampaignGroups();
@@ -16,4 +17,6 @@ public interface ICampaignGroupController {
     ResponseEntity<Optimisation> getOptimisationForGroup(Long campaignGroupId);
 
     ResponseEntity<List<Recommendation>> getRecommendationsForOptimisation(Long optimisationId);
+
+    ResponseEntity<Map<String, String>> applyLatestRecommendation(Long campaignGroupId);
 }

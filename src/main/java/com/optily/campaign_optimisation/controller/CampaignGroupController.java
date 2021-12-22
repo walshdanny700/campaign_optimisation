@@ -17,10 +17,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.transaction.Transactional;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -90,7 +94,30 @@ public class CampaignGroupController implements ICampaignGroupController{
     }
 
 
+    @Override
+    @PostMapping(value = "/optimisations/{optimisationId}/recommendations/apply", produces = MediaType.APPLICATION_JSON_VALUE)
+    @Transactional
+    public ResponseEntity<Map<String, String>> applyLatestRecommendation(@PathVariable Long optimisationId){
 
+        Optional<Optimisation> optimisation = this.optimisationRepository.findById(optimisationId);
 
+        var headers = new HttpHeaders();
+        headers.add(HEADER_NAME, HEADER_VALUE);
+
+        if(optimisation.isEmpty() ){
+            return ResponseEntity.notFound().headers(headers).build();
+        }
+
+        if(optimisation.get().getStatus().equals(OptimisationStatus.APPLIED)){
+            return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).headers(headers).build();
+        }
+
+        List<Recommendation> recommendations = this.optimisationService.getLatestRecommendations(optimisationId);
+        var rowsUpdated = this.optimisationService.applyRecommendations(recommendations, optimisation.get());
+
+        Map<String, String> message = new HashMap<>();
+        message.put("message", "Campaigns Updated " + rowsUpdated);
+        return  ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).headers(headers).body(message);
+    }
 
 }

@@ -70,17 +70,19 @@ public class OptimisationService implements IOptimisationService {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public int applyRecommendations(List<Recommendation> recommendations, Optimisation optimisation){
 
-    public void applyRecommendations(List<Recommendation> recommendations, Optimisation optimisation){
-
+        var rowsUpdated = 0;
         for(Recommendation recommendation : recommendations){
-            this.campaignRepository.updateCampaign(recommendation.getCampaignId(), recommendation.getRecommendedBudget());
+            rowsUpdated = rowsUpdated + this.campaignRepository.updateCampaign(recommendation.getCampaignId(), recommendation.getRecommendedBudget());
+
         }
 
         this.recommendationRepository.saveAll(recommendations);
 
         optimisation.setStatus(OptimisationStatus.APPLIED);
         this.optimisationRepository.save(optimisation);
-
+        return rowsUpdated;
     }
 }

@@ -15,3 +15,9 @@ operation::optimisations/[snippets='curl-request,http-request,path-parameters,ht
 
 == Recommendations
 operation::recommendations/[snippets='curl-request,http-request,path-parameters,http-response,response-fields']
+
+
+== Apply Recommendations
+
+operation::apply-recommendations/[snippets='curl-request,http-request,path-parameters,http-response,response-fields']
+
