@@ -59,3 +59,9 @@ bootWar {
 		into 'src/main/resources/static/docs'
 	}
 }
+
+
+wrapper {
+	gradleVersion = '6.9'
+	distributionUrl = distributionUrl.replace("bin", "all")
+}
