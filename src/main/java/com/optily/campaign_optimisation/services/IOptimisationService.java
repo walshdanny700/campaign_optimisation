@@ -13,4 +13,6 @@ public interface IOptimisationService {
     List<Recommendation> getLatestRecommendations(Long optimisationId);
 
     int applyRecommendations(List<Recommendation> recommendations, Optimisation optimisation);
+
+    Optional<Optimisation> getOptimisationById(Long optimisationId);
 }

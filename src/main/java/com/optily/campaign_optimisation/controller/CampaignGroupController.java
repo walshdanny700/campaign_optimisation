@@ -5,9 +5,9 @@ import com.optily.campaign_optimisation.entity.CampaignGroup;
 import com.optily.campaign_optimisation.entity.Optimisation;
 import com.optily.campaign_optimisation.entity.OptimisationStatus;
 import com.optily.campaign_optimisation.entity.Recommendation;
-import com.optily.campaign_optimisation.repository.ICampaignGroupRepository;
-import com.optily.campaign_optimisation.repository.ICampaignRepository;
 import com.optily.campaign_optimisation.repository.IOptimisationRepository;
+import com.optily.campaign_optimisation.services.ICampaignGroupService;
+import com.optily.campaign_optimisation.services.ICampaignService;
 import com.optily.campaign_optimisation.services.IOptimisationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -27,28 +27,25 @@ import java.util.Optional;
 @RequestMapping(value = "/api/v1")
 public class CampaignGroupController implements ICampaignGroupController{
 
-    private final ICampaignGroupRepository campaignGroupRepository;
-    private final ICampaignRepository campaignRepository;
-    private final IOptimisationRepository optimisationRepository;
+    private final ICampaignGroupService campaignGroupService;
+    private final ICampaignService campaignService;
     private final IOptimisationService optimisationService;
 
     public static final String HEADER_NAME = "Content-Type";
     public static final String HEADER_VALUE = "application/json; charset=utf-8";
 
     @Autowired
-    public CampaignGroupController(ICampaignGroupRepository campaignGroupRepository,
-                                   ICampaignRepository campaignRepository,
-                                   IOptimisationRepository optimisationRepository,
+    public CampaignGroupController(ICampaignGroupService campaignGroupService,
+                                   ICampaignService campaignService,
                                    IOptimisationService optimisationService){
-        this.campaignGroupRepository = campaignGroupRepository;
-        this.campaignRepository = campaignRepository;
-        this.optimisationRepository = optimisationRepository;
+        this.campaignGroupService = campaignGroupService;
+        this.campaignService = campaignService;
         this.optimisationService = optimisationService;
     }
 
     @Override
     public ResponseEntity<List<CampaignGroup>> getCampaignGroups(){
-        List<CampaignGroup> campaignGroups = this.campaignGroupRepository.findAll();
+        List<CampaignGroup> campaignGroups = this.campaignGroupService.getAllCampaignGroups();
         var headers = new HttpHeaders();
         headers.add(HEADER_NAME, HEADER_VALUE);
         return CollectionUtils.isEmpty(campaignGroups) ? ResponseEntity.notFound().headers(headers).build()
@@ -57,7 +54,7 @@ public class CampaignGroupController implements ICampaignGroupController{
 
     @Override
     public ResponseEntity<List<Campaign>> getCampaignsForGroup(Long campaignGroupId) {
-        List<Campaign> campaigns = this.campaignRepository.findByCampaignGroupId(campaignGroupId);
+        List<Campaign> campaigns = this.campaignService.getAllCampaignsForCampaignGroupId(campaignGroupId);
         var headers = new HttpHeaders();
         headers.add(HEADER_NAME, HEADER_VALUE);
         return  campaigns.isEmpty()  ? ResponseEntity.notFound().headers(headers).build()
@@ -87,23 +84,27 @@ public class CampaignGroupController implements ICampaignGroupController{
     @Transactional
     public ResponseEntity<Map<String, String>> applyLatestRecommendation(Long optimisationId){
 
-        Optional<Optimisation> optimisation = this.optimisationRepository.findById(optimisationId);
+        Optional<Optimisation> optimisation = this.optimisationService.getOptimisationById(optimisationId);
 
         var headers = new HttpHeaders();
         headers.add(HEADER_NAME, HEADER_VALUE);
 
+        Map<String, String> message = new HashMap<>();
+
         if(optimisation.isEmpty() ){
-            return ResponseEntity.notFound().headers(headers).build();
+            message.put("message", "Campaigns Updated 0, Optimisations Not found for given optimisationId");
+            return ResponseEntity.badRequest().contentType(MediaType.APPLICATION_JSON).headers(headers).body(message);
         }
 
+
         if(optimisation.get().getStatus().equals(OptimisationStatus.APPLIED)){
-            return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).headers(headers).build();
+            message.put("message", "Campaigns Updated 0, Optimisations Already Applied");
+            return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).headers(headers).body(message);
         }
 
         List<Recommendation> recommendations = this.optimisationService.getLatestRecommendations(optimisationId);
         var rowsUpdated = this.optimisationService.applyRecommendations(recommendations, optimisation.get());
 
-        Map<String, String> message = new HashMap<>();
         message.put("message", "Campaigns Updated " + rowsUpdated);
         return  ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).headers(headers).body(message);
     }

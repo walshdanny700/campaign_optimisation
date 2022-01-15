@@ -85,4 +85,9 @@ public class OptimisationService implements IOptimisationService {
         this.optimisationRepository.save(optimisation);
         return rowsUpdated;
     }
+
+    @Override
+    public Optional<Optimisation> getOptimisationById(Long optimisationId) {
+        return this.optimisationRepository.findById(optimisationId);
+    }
 }
