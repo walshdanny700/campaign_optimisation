@@ -8,16 +8,12 @@ import com.optily.campaign_optimisation.entity.Recommendation;
 import com.optily.campaign_optimisation.repository.ICampaignGroupRepository;
 import com.optily.campaign_optimisation.repository.ICampaignRepository;
 import com.optily.campaign_optimisation.repository.IOptimisationRepository;
-import com.optily.campaign_optimisation.repository.IRecommendationRepository;
 import com.optily.campaign_optimisation.services.IOptimisationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.CollectionUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -34,7 +30,6 @@ public class CampaignGroupController implements ICampaignGroupController{
     private final ICampaignGroupRepository campaignGroupRepository;
     private final ICampaignRepository campaignRepository;
     private final IOptimisationRepository optimisationRepository;
-    private final IRecommendationRepository recommendationRepository;
     private final IOptimisationService optimisationService;
 
     public static final String HEADER_NAME = "Content-Type";
@@ -44,17 +39,14 @@ public class CampaignGroupController implements ICampaignGroupController{
     public CampaignGroupController(ICampaignGroupRepository campaignGroupRepository,
                                    ICampaignRepository campaignRepository,
                                    IOptimisationRepository optimisationRepository,
-                                   IRecommendationRepository recommendationRepository,
                                    IOptimisationService optimisationService){
         this.campaignGroupRepository = campaignGroupRepository;
         this.campaignRepository = campaignRepository;
         this.optimisationRepository = optimisationRepository;
-        this.recommendationRepository = recommendationRepository;
         this.optimisationService = optimisationService;
     }
 
     @Override
-    @GetMapping(value = "/campaigngroups/list", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<CampaignGroup>> getCampaignGroups(){
         List<CampaignGroup> campaignGroups = this.campaignGroupRepository.findAll();
         var headers = new HttpHeaders();
@@ -64,8 +56,7 @@ public class CampaignGroupController implements ICampaignGroupController{
     }
 
     @Override
-    @GetMapping(value = "/campaigngroups/{campaignGroupId}/campaigns/list", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Campaign>> getCampaignsForGroup(@PathVariable Long campaignGroupId) {
+    public ResponseEntity<List<Campaign>> getCampaignsForGroup(Long campaignGroupId) {
         List<Campaign> campaigns = this.campaignRepository.findByCampaignGroupId(campaignGroupId);
         var headers = new HttpHeaders();
         headers.add(HEADER_NAME, HEADER_VALUE);
@@ -74,8 +65,7 @@ public class CampaignGroupController implements ICampaignGroupController{
     }
 
     @Override
-    @GetMapping(value = "/campaigngroups/{campaignGroupId}/optimisations/latest", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Optimisation> getOptimisationForGroup(@PathVariable Long campaignGroupId) {
+    public ResponseEntity<Optimisation> getOptimisationForGroup(Long campaignGroupId) {
         Optional<Optimisation> optimisation = this.optimisationService.getLatestOptimisation(campaignGroupId);
         var headers = new HttpHeaders();
         headers.add(HEADER_NAME, HEADER_VALUE);
@@ -84,8 +74,7 @@ public class CampaignGroupController implements ICampaignGroupController{
     }
 
     @Override
-    @GetMapping(value = "/optimisations/{optimisationId}/recommendations/latest", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Recommendation>> getRecommendationsForOptimisation(@PathVariable Long optimisationId) {
+    public ResponseEntity<List<Recommendation>> getRecommendationsForOptimisation(Long optimisationId) {
         List<Recommendation> recommendations = this.optimisationService.getLatestRecommendations(optimisationId);
         var headers = new HttpHeaders();
         headers.add(HEADER_NAME, HEADER_VALUE);
@@ -95,9 +84,8 @@ public class CampaignGroupController implements ICampaignGroupController{
 
 
     @Override
-    @PostMapping(value = "/optimisations/{optimisationId}/recommendations/apply", produces = MediaType.APPLICATION_JSON_VALUE)
     @Transactional
-    public ResponseEntity<Map<String, String>> applyLatestRecommendation(@PathVariable Long optimisationId){
+    public ResponseEntity<Map<String, String>> applyLatestRecommendation(Long optimisationId){
 
         Optional<Optimisation> optimisation = this.optimisationRepository.findById(optimisationId);
 

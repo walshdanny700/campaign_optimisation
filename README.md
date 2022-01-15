@@ -3,11 +3,13 @@
 
 ### Steps To Run Application
 
-    gradle wrapper
+Inside Terminal Window of your IDE run the following commands
 
-    ./gradlew build
+    1. gradle wrapper
 
-    ./gradlew bootRun
+    2. gradlew build
+
+    3. gradlew bootRun
 
 
 ### View Api Documentation
