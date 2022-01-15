@@ -5,7 +5,6 @@ import com.optily.campaign_optimisation.entity.CampaignGroup;
 import com.optily.campaign_optimisation.entity.Optimisation;
 import com.optily.campaign_optimisation.entity.OptimisationStatus;
 import com.optily.campaign_optimisation.entity.Recommendation;
-import com.optily.campaign_optimisation.repository.IOptimisationRepository;
 import com.optily.campaign_optimisation.services.ICampaignGroupService;
 import com.optily.campaign_optimisation.services.ICampaignService;
 import com.optily.campaign_optimisation.services.IOptimisationService;

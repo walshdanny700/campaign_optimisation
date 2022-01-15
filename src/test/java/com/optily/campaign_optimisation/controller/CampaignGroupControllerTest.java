@@ -5,10 +5,8 @@ import com.optily.campaign_optimisation.entity.CampaignGroup;
 import com.optily.campaign_optimisation.entity.Optimisation;
 import com.optily.campaign_optimisation.entity.OptimisationStatus;
 import com.optily.campaign_optimisation.entity.Recommendation;
-import com.optily.campaign_optimisation.repository.ICampaignGroupRepository;
-import com.optily.campaign_optimisation.repository.ICampaignRepository;
-import com.optily.campaign_optimisation.repository.IOptimisationRepository;
-import com.optily.campaign_optimisation.repository.IRecommendationRepository;
+import com.optily.campaign_optimisation.services.ICampaignGroupService;
+import com.optily.campaign_optimisation.services.ICampaignService;
 import com.optily.campaign_optimisation.services.IOptimisationService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -49,22 +47,14 @@ class CampaignGroupControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-
-    @MockBean
-    private ICampaignGroupRepository campaignGroupRepository;
-
-    @MockBean
-    private ICampaignRepository campaignRepository;
-
-    @MockBean
-    private IOptimisationRepository optimisationRepository;
-
-    @MockBean
-    private IRecommendationRepository recommendationRepository;
-
     @MockBean
     private IOptimisationService optimisationService;
 
+    @MockBean
+    private ICampaignService campaignService;
+
+    @MockBean
+    private ICampaignGroupService campaignGroupService;
 
     private CampaignGroup campaignGroup;
 
@@ -105,7 +95,7 @@ class CampaignGroupControllerTest {
 
     @Test
     void givenZeroCampaignGroups_WhenGetRequest_thenReturnNotFound() throws Exception{
-        given(campaignGroupRepository.findAll()).willReturn(Collections.emptyList());
+        given(this.campaignGroupService.getAllCampaignGroups()).willReturn(Collections.emptyList());
 
         mockMvc.perform(get("/api/v1/campaigngroups/list"))
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
@@ -114,7 +104,7 @@ class CampaignGroupControllerTest {
 
     @Test
     void givenCampaignGroups_whenGetCampaignGroups_thenReturnJsonArray() throws Exception{
-        given(this.campaignGroupRepository.findAll()).willReturn(Collections.singletonList(this.campaignGroup));
+        given(this.campaignGroupService.getAllCampaignGroups()).willReturn(Collections.singletonList(this.campaignGroup));
 
         FieldDescriptor[] campaignGroup = new FieldDescriptor[] {
                 fieldWithPath("id").description("Unique Identifier of Campaign Group"),
@@ -134,7 +124,7 @@ class CampaignGroupControllerTest {
 
     @Test
     void givenCampaignGroupId_whenCampaignsForGroup_thenReturnJsonArray() throws Exception{
-        given(this.campaignRepository.findByCampaignGroupId(any())).willReturn(Collections.singletonList(this.campaign));
+        given(this.campaignService.getAllCampaignsForCampaignGroupId(any())).willReturn(Collections.singletonList(this.campaign));
 
         FieldDescriptor[] campaignFieldDescriptor = new FieldDescriptor[] {
                 fieldWithPath("id").description("Unique Identifier for a Campaign"),
@@ -166,7 +156,7 @@ class CampaignGroupControllerTest {
 
     @Test
     void givenCampaignGroupId_whenZeroCampaignsForGroup_thenReturnNotFound() throws Exception{
-        given(this.campaignRepository.findByCampaignGroupId(any())).willReturn(Collections.emptyList());
+        given(this.campaignService.getAllCampaignsForCampaignGroupId(any())).willReturn(Collections.emptyList());
 
         mockMvc.perform(get("/api/v1/campaigngroups/1/campaigns/list"))
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
@@ -252,7 +242,7 @@ class CampaignGroupControllerTest {
 
     @Test
     void givenOptimisationId_whenApplyRecommendation_thenCampaignBudgetUpdated() throws Exception{
-        given(this.optimisationRepository.findById(any())).willReturn(Optional.of(this.optimisation));
+        given(this.optimisationService.getOptimisationById(any())).willReturn(Optional.of(this.optimisation));
         given(this.optimisationService.getLatestRecommendations(any())).willReturn(Collections.singletonList(this.recommendation));
         this.campaign.setBudget(this.recommendation.getRecommendedBudget());
         given(this.optimisationService.applyRecommendations(any(), any())).willReturn(1);
