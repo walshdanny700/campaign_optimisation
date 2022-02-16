@@ -9,11 +9,9 @@ Java Version 11: [Amazon Corretto 11](https://docs.aws.amazon.com/corretto/lates
 
 Inside Terminal Window of your IDE run the following commands
 
-    1. gradle wrapper
+    1. gradlew build
 
-    2. gradlew build
-
-    3. gradlew bootRun
+    2. gradlew bootRun
 
 ### View Api Documentation
 
