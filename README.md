@@ -1,5 +1,9 @@
 # Getting Started
 
+### Installation Requirements
+
+Java Version 11: [Amazon Corretto 11](https://docs.aws.amazon.com/corretto/latest/corretto-11-ug/generic-linux-install.html)
+
 
 ### Steps To Run Application
 
