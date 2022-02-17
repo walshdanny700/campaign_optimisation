@@ -7,13 +7,14 @@ Java Version 11: [Amazon Corretto 11](https://docs.aws.amazon.com/corretto/lates
 
 ### Steps To Run Application
 
-For Linux OS You may need to run
+For Linux OS You may need to run in project root directory
 
     chmod 755 ./gradlew
 
 Inside Terminal Window of your IDE run the following commands
 
-    1. gradlew build
+    # for linux ./gradlew
+    1. gradlew build 
 
     2. gradlew bootRun
 
