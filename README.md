@@ -11,9 +11,9 @@ For Linux OS You may need to run in project root directory
 
     chmod 755 ./gradlew
 
-Inside Terminal Window of your IDE run the following commands
+Inside Terminal Window of your IDE run the following commands in project root directory
 
-    # for linux ./gradlew
+    # for Linux ./gradlew
     1. gradlew build 
 
     2. gradlew bootRun
