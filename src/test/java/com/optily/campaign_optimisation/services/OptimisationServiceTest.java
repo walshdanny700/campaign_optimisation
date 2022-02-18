@@ -15,7 +15,9 @@ import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -141,4 +143,56 @@ public class OptimisationServiceTest {
         verify(optimisationRepository).save(any());
     }
 
+
+    @Test
+    public void givenGenerateLatestRecommendations_WhenValidInput_ThenReturnRecommendationList(){
+
+        List<Campaign> list = new ArrayList<>();
+        list.add(this.campaignOne);
+        list.add(this.campaignTwo);
+        List<Recommendation>  result = optimisationService.generateLatestRecommendations(list, this.optimisation);
+
+        assertEquals(result.size(), 2);
+        assertEquals(result.get(0).getRecommendedBudget(), BigDecimal.valueOf(4.0));
+        assertEquals(result.get(1).getRecommendedBudget(), BigDecimal.valueOf(16.0));
+    }
+
+
+    @Test
+    public void givenGetLatestRecommendations_WhenInputNotFound_ThenReturnEmptyList(){
+
+        when(optimisationRepository.findById(anyLong())).thenReturn(Optional.empty());
+        List<Recommendation> emptyList =  optimisationService.getLatestRecommendations(1L);
+
+        verify(optimisationRepository).findById(anyLong());
+        assertEquals(emptyList.size(), 0);
+    }
+
+    @Test
+    public void givenGetLatestRecommendations_WhenStatusApplied_ThenReturnEmptyList(){
+
+        this.optimisation.setStatus(OptimisationStatus.APPLIED);
+        when(optimisationRepository.findById(anyLong())).thenReturn(Optional.of(this.optimisation));
+        List<Recommendation> emptyList =  optimisationService.getLatestRecommendations(1L);
+
+        verify(optimisationRepository).findById(anyLong());
+        assertEquals(emptyList.size(), 0);
+    }
+
+
+    @Test
+    public void givenGetLatestRecommendations_WhenCampaignNotFound_ThenReturnEmptyList(){
+
+
+        when(optimisationRepository.findById(anyLong())).thenReturn(Optional.of(this.optimisation));
+
+        when(campaignRepository.findByCampaignGroupId(anyLong())).thenReturn(Collections.emptyList());
+
+
+        List<Recommendation> emptyList =  optimisationService.getLatestRecommendations(1L);
+
+        verify(optimisationRepository).findById(anyLong());
+        verify(campaignRepository).findByCampaignGroupId(anyLong());
+        assertEquals(emptyList.size(), 0);
+    }
 }
