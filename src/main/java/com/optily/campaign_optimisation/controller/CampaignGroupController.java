@@ -32,6 +32,7 @@ public class CampaignGroupController implements ICampaignGroupController{
 
     public static final String HEADER_NAME = "Content-Type";
     public static final String HEADER_VALUE = "application/json; charset=utf-8";
+    public static final String MESSAGE = "message";
 
     @Autowired
     public CampaignGroupController(ICampaignGroupService campaignGroupService,
@@ -91,20 +92,20 @@ public class CampaignGroupController implements ICampaignGroupController{
         Map<String, String> message = new HashMap<>();
 
         if(optimisation.isEmpty() ){
-            message.put("message", "Campaigns Updated 0, Optimisations Not found for given optimisationId");
+            message.put( MESSAGE, "Campaigns Updated 0, Optimisations Not found for given optimisationId");
             return ResponseEntity.badRequest().contentType(MediaType.APPLICATION_JSON).headers(headers).body(message);
         }
 
 
         if(optimisation.get().getStatus().equals(OptimisationStatus.APPLIED)){
-            message.put("message", "Campaigns Updated 0, Optimisations Already Applied");
+            message.put( MESSAGE, "Campaigns Updated 0, Optimisations Already Applied");
             return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).headers(headers).body(message);
         }
 
         List<Recommendation> recommendations = this.optimisationService.getLatestRecommendations(optimisationId);
         var rowsUpdated = this.optimisationService.applyRecommendations(recommendations, optimisation.get());
 
-        message.put("message", "Campaigns Updated " + rowsUpdated);
+        message.put( MESSAGE, "Campaigns Updated " + rowsUpdated);
         return  ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).headers(headers).body(message);
     }
 
