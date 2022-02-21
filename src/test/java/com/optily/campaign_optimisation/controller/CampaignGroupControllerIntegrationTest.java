@@ -53,8 +53,8 @@ class CampaignGroupControllerIntegrationTest {
     @Test
     void givenApplyLatestRecommendation_WhenNotValidOptimisationId_ThenReturnZeroUpdated(){
 
-        ResponseEntity<Map> response = this.restTemplate.postForEntity("http://localhost:" + port + "/api/v1/optimisations/11111/recommendations/apply",
-                null, Map.class);
+        ResponseEntity<Map<String,String>> response = this.restTemplate.postForEntity("http://localhost:" + port + "/api/v1/optimisations/11111/recommendations/apply",
+                null,  (Class<Map<String,String>>)(Class)Map.class);
 
 
         assertEquals("Campaigns Updated 0, Optimisations Not found for given optimisationId",Objects.requireNonNull(response.getBody()).get("message"));
