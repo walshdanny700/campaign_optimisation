@@ -28,5 +28,5 @@ public interface ICampaignGroupController {
     ResponseEntity<List<Recommendation>> getRecommendationsForOptimisation(@PathVariable Long optimisationId);
 
     @PostMapping(value = "/optimisations/{optimisationId}/recommendations/apply", produces = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<Map<String, String>> applyLatestRecommendation(@PathVariable Long campaignGroupId);
+    ResponseEntity<Map<String, String>> applyLatestRecommendation(@PathVariable Long optimisationId);
 }
