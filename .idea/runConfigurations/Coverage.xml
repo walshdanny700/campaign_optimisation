@@ -1,0 +1,20 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Coverage" type="JUnit" factoryName="JUnit">
+    <module name="campaign_optimisation.test" />
+    <extension name="coverage" sample_coverage="false" track_test_folders="true" runner="jacoco">
+      <pattern>
+        <option name="PATTERN" value="com.optily.campaign_optimisation.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <option name="PACKAGE_NAME" value="" />
+    <option name="MAIN_CLASS_NAME" value="" />
+    <option name="METHOD_NAME" value="" />
+    <option name="TEST_OBJECT" value="package" />
+    <option name="WORKING_DIRECTORY" value="$ContentRoot$" />
+    <dir value="$PROJECT_DIR$/src/main/java" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
