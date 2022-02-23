@@ -42,7 +42,7 @@ public class CampaignServiceTest {
                 .id(1L)
                 .campaignGroupId(this.campaignGroup.getId())
                 .budget(BigDecimal.TEN)
-                .impressions(10D)
+                .impressions(10L)
                 .name("Fist Campaign")
                 .revenue(BigDecimal.TEN)
                 .build();
@@ -51,7 +51,7 @@ public class CampaignServiceTest {
                 .id(2L)
                 .campaignGroupId(this.campaignGroup.getId())
                 .budget(BigDecimal.TEN)
-                .impressions(40D)
+                .impressions(40L)
                 .name("Second Campaign")
                 .revenue(BigDecimal.TEN)
                 .build();

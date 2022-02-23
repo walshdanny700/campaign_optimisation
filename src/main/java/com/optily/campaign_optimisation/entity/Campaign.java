@@ -38,7 +38,7 @@ public class Campaign {
 
     @NonNull
     @Column(name="IMPRESSIONS")
-    Double impressions;
+    Long impressions;
 
     @NonNull
     @Column(name="REVENUE")

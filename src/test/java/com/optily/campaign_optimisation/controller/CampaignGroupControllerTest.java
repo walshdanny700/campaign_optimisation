@@ -73,7 +73,7 @@ class CampaignGroupControllerTest {
                 .id(1L)
                 .campaignGroupId(this.campaignGroup.getId())
                 .budget(BigDecimal.ONE)
-                .impressions(123D)
+                .impressions(123L)
                 .name("Fist Campaign")
                 .revenue(BigDecimal.TEN)
                 .build();
@@ -141,7 +141,7 @@ class CampaignGroupControllerTest {
                 .andExpect(jsonPath("$.[0].id", is(this.campaign.getId()), Long.class))
                 .andExpect(jsonPath("$.[0].campaignGroupId", is(this.campaign.getCampaignGroupId()), Long.class))
                 .andExpect(jsonPath("$.[0].budget", is(this.campaign.getBudget()), BigDecimal.class))
-                .andExpect(jsonPath("$.[0].impressions", is(this.campaign.getImpressions())))
+                .andExpect(jsonPath("$.[0].impressions", is(this.campaign.getImpressions()), Long.class))
                 .andExpect(jsonPath("$.[0].revenue", is(this.campaign.getRevenue()), BigDecimal.class))
                 .andDo(document("campaigns/list",
                         responseFields(fieldWithPath("[]")
