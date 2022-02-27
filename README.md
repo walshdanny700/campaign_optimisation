@@ -4,6 +4,7 @@
 
 Java Version 11: [Amazon Corretto 11](https://docs.aws.amazon.com/corretto/latest/corretto-11-ug/generic-linux-install.html)
 
+Java Version 17:
 
 ### Steps To Run Application
 

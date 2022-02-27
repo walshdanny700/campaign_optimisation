@@ -1,14 +1,15 @@
 plugins {
-	id 'org.springframework.boot' version '2.6.1'
+	id 'org.springframework.boot' version '2.6.4'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-	id 'org.asciidoctor.convert' version '2.4.0'
+	id 'org.asciidoctor.jvm.convert' version '3.3.2'
+	id 'org.asciidoctor.jvm.pdf' version "3.3.2"
+	id 'org.asciidoctor.jvm.gems' version "3.3.2"
 	id 'java'
 	id 'war'
 }
 
 group = 'com.optily'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
 
 
 configurations {
@@ -23,7 +24,7 @@ repositories {
 
 ext {
 	snippetsDir = file('build/generated-snippets')
-	restDocsProjectVersion =  '2.0.5.RELEASE'
+	//restDocsProjectVersion =  '2.0.6.RELEASE'
 }
 
 dependencies {
@@ -36,21 +37,23 @@ dependencies {
 	runtimeOnly 'com.h2database:h2'
 	annotationProcessor 'org.projectlombok:lombok'
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
-	testCompile 'org.springframework.boot:spring-boot-starter-test'
-	asciidoctor "org.springframework.restdocs:spring-restdocs-asciidoctor:$restDocsProjectVersion"
-	testImplementation "org.springframework.restdocs:spring-restdocs-mockmvc:$restDocsProjectVersion"
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	//asciidoctor "org.springframework.restdocs:spring-restdocs-asciidoctor:$restDocsProjectVersion"
+	testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
+
+	// https://mvnrepository.com/artifact/org.asciidoctor/asciidoctor-gradle-jvm
+//	implementation group: 'org.asciidoctor', name: 'asciidoctor-gradle-jvm', version: '3.3.2'
+
 }
 
-test {
+tasks.named('test') {
 	outputs.dir snippetsDir
 	useJUnitPlatform()
 }
 
-asciidoctor {
-
+tasks.named('asciidoctor') {
 	inputs.dir snippetsDir
 	dependsOn test
-
 }
 
 bootWar {
@@ -62,7 +65,8 @@ bootWar {
 }
 
 
-wrapper {
-	gradleVersion = '6.9'
-	distributionUrl = distributionUrl.replace("bin", "all")
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
 }
