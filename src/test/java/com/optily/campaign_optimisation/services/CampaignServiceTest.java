@@ -6,9 +6,9 @@ import com.optily.campaign_optimisation.repository.ICampaignRepository;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -19,13 +19,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.when;
 
-@SpringBootTest
-public class CampaignServiceTest {
+@WebMvcTest(CampaignService.class)
+class CampaignServiceTest {
 
-    @InjectMocks
+    @Autowired
     private CampaignService campaignService;
 
-    @Mock
+    @MockBean
     private ICampaignRepository campaignRepository;
 
     private CampaignGroup campaignGroup;
@@ -42,7 +42,7 @@ public class CampaignServiceTest {
                 .id(1L)
                 .campaignGroupId(this.campaignGroup.getId())
                 .budget(BigDecimal.TEN)
-                .impressions(10D)
+                .impressions(10L)
                 .name("Fist Campaign")
                 .revenue(BigDecimal.TEN)
                 .build();
@@ -51,14 +51,14 @@ public class CampaignServiceTest {
                 .id(2L)
                 .campaignGroupId(this.campaignGroup.getId())
                 .budget(BigDecimal.TEN)
-                .impressions(40D)
+                .impressions(40L)
                 .name("Second Campaign")
                 .revenue(BigDecimal.TEN)
                 .build();
     }
 
     @Test
-    public void givenGetAllCampaignsForCampaignGroupId_WhenValidCampaignGroupId_thenReturnValid(){
+    void givenGetAllCampaignsForCampaignGroupId_WhenValidCampaignGroupId_thenReturnValid(){
         List<Campaign> list = new ArrayList<>();
         list.add(this.campaignOne);
         list.add(this.campaignTwo);
@@ -68,7 +68,7 @@ public class CampaignServiceTest {
 
         List<Campaign>  result = campaignService.getAllCampaignsForCampaignGroupId(this.campaignGroup.getId());
 
-        assertEquals(result.size(), 2);
+        assertEquals(2, result.size());
     }
 
 
