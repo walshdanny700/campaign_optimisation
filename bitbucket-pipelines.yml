@@ -10,23 +10,23 @@ image: openjdk:17-alpine
 
 pipelines:
   default:
-    - parallel:
-      - step:
-          name: Build and Test
-          script:
-            - echo "Build and Test $BITBUCKET_REPO_SLUG"
-            - ./gradlew bootBuildImage --imageName=$BITBUCKET_REPO_SLUG
-          services:
-            - docker
-          caches:
-            - docker
-      - step:
-          name: Lint the Dockerfile
-          image: hadolint/hadolint:latest-debian
-          script:
-            # Run a security scan for sensitive data.
-            # See more security tools at https://bitbucket.org/product/features/pipelines/integrations?&category=security
-            - hadolint Dockerfile
+#    - parallel:
+    - step:
+        name: Build and Test
+        script:
+          - echo "Build and Test $BITBUCKET_REPO_SLUG"
+          - ./gradlew bootBuildImage --imageName=$BITBUCKET_REPO_SLUG
+        services:
+          - docker
+        caches:
+          - docker
+#      - step:
+#          name: Lint the Dockerfile
+#          image: hadolint/hadolint:latest-debian
+#          script:
+#            # Run a security scan for sensitive data.
+#            # See more security tools at https://bitbucket.org/product/features/pipelines/integrations?&category=security
+#            - hadolint Dockerfile
 #  branches:
 #    master:
 #      - step:
