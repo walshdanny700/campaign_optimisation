@@ -24,7 +24,7 @@ repositories {
 }
 
 ext {
-	snippetsDir = file('build/generated-snippets') as Object as File
+	snippetsDir = file('build/generated-snippets')  as File
 }
 
 dependencies {
@@ -98,6 +98,25 @@ tasks.named('asciidoctor') {
 	dependsOn test
 }
 
+war {
+	enabled = true
+	archiveClassifier = '' //use empty string
+	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+	manifest {
+
+		attributes 'Main-Class': 'WEB-INF.classes.com.optily.campaign_optimisation.CampaignOptimisationApplication'
+		attributes 'Implementation-Version':  archiveVersion
+	}
+	from {
+		configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+	} {
+		exclude "META-INF/*.SF"
+		exclude "META-INF/*.DSA"
+		exclude "META-INF/*.RSA"
+	}
+}
+
+
 bootWar {
 	dependsOn asciidoctor
 	copy {
@@ -105,7 +124,6 @@ bootWar {
 		into 'src/main/resources/static/docs'
 	}
 }
-
 
 java {
 	toolchain {

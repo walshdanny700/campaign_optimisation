@@ -8,6 +8,7 @@ Java Version 17:
 
 ### Steps To Run Application
 
+#### Gradle
 For Linux OS You may need to run in project root directory
 
     chmod 755 ./gradlew
@@ -18,6 +19,15 @@ Inside Terminal Window of your IDE run the following commands in project root di
     1. gradlew build 
 
     2. gradlew bootRun
+
+#### Docker
+
+    # Build Image With Gradle
+    1. sudo ./gradlew bootBuildImage --imageName=walshdanny700/campaign_optimisation
+
+    2. sudo docker push walshdanny700/campaign_optimisation
+
+    2. sudo docker run -p 8080:8080 walshdanny700/campaign_optimisation
 
 ### View Api Documentation
 
