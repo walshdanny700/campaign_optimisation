@@ -15,7 +15,7 @@ pipelines:
         name: Build and Test
         script:
           - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-          - ./gradlew bootBuildImage --imageName=$DOCKERHUB_NAMESPACE/$IMAGE_NAME
+          - ./gradlew bootBuildImage --stacktrace  --debug  --imageName=$DOCKERHUB_NAMESPACE/$IMAGE_NAME
         services:
           - docker
 #      - step:
