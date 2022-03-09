@@ -14,11 +14,10 @@ pipelines:
     - step:
         name: Build and Test
         script:
-          - echo "Build and Test $BITBUCKET_REPO_SLUG"
-          - ./gradlew bootBuildImage --imageName=$BITBUCKET_REPO_SLUG
+          - docker login -u $DOCKER_HUB_REPO -p $DOCKER_PASSWORD
+          - echo "Build and Test $DOCKER_HUB_REPO"
+          - ./gradlew bootBuildImage --imageName=$DOCKER_HUB_REPO
         services:
-          - docker
-        caches:
           - docker
 #      - step:
 #          name: Lint the Dockerfile
