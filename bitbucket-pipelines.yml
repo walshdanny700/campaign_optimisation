@@ -14,7 +14,7 @@ pipelines:
     - step:
         name: Build and Test
         script:
-          - docker login -u $DOCKER_HUB_REPO -p $DOCKER_PASSWORD
+          - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
           - echo "Build and Test $DOCKER_HUB_REPO"
           - ./gradlew bootBuildImage --imageName=$DOCKER_HUB_REPO
         services:
