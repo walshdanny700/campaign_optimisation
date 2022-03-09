@@ -27,12 +27,12 @@ pipelines:
             # Run a security scan for sensitive data.
             # See more security tools at https://bitbucket.org/product/features/pipelines/integrations?&category=security
             - pipe: atlassian/git-secrets-scan:0.5.1
-      - step:
-          name: Docker Push
-          caches:
-            - gradle
-          script:
-            - export IMAGE_NAME=walshdanny700/campaign_optimisation
-            - ./gradlew bootBuildImage --imageName=$IMAGE_NAME
-            - docker login --username $DOCKER_USER --password $DOCKER_PASSWORD
-            - docker push $IMAGE_NAME
+    - step:
+        name: Deployment to DockerHub
+        deployment: DockerHub
+        script:
+          - echo "Deploying to DockerHub"
+          - export IMAGE_NAME=walshdanny700/campaign_optimisation
+          - ./gradlew bootBuildImage --imageName=$IMAGE_NAME
+          - docker login --username $DOCKER_USER --password $DOCKER_PASSWORD
+          - docker push $IMAGE_NAME
