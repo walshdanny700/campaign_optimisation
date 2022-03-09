@@ -7,32 +7,49 @@
 
 image: openjdk:17-alpine
 
-options:
-  docker: true
 
 pipelines:
   default:
     - parallel:
       - step:
           name: Build and Test
-          caches:
-            - gradle
           script:
-            - ./gradlew build
-          after-script:
-            - pipe: atlassian/checkstyle-report:0.3.0
+            - ./gradlew bootBuildImage --imageName=$BITBUCKET_REPO_SLUG
+          services:
+            - docker
+          caches:
+            - docker
       - step:
-          name: Security Scan
+          name: Lint the Dockerfile
+          image: hadolint/hadolint:latest-debian
           script:
             # Run a security scan for sensitive data.
             # See more security tools at https://bitbucket.org/product/features/pipelines/integrations?&category=security
-            - pipe: atlassian/git-secrets-scan:0.5.1
-    - step:
-        name: Deployment to DockerHub
-        deployment: DockerHub
-        script:
-          - echo "Deploying to DockerHub"
-          - export IMAGE_NAME=walshdanny700/campaign_optimisation
-          - ./gradlew bootBuildImage --imageName=$IMAGE_NAME
-          - docker login --username $DOCKER_USER --password $DOCKER_PASSWORD
-          - docker push $IMAGE_NAME
+            - hadolint Dockerfile
+  branches:
+    master:
+      - step:
+          name: Build and Test
+          script:
+            - IMAGE_NAME=$BITBUCKET_REPO_SLUG
+            - docker build . --file Dockerfile --tag ${IMAGE_NAME}
+            - docker save ${IMAGE_NAME} --output "${IMAGE_NAME}.tar"
+          services:
+            - docker
+          caches:
+            - docker
+          artifacts:
+            - "*.tar"
+      - step:
+          name: Deploy to Production
+          deployment: Production
+          script:
+            - echo ${DOCKER_PASSWORD} | docker login --username "$DOCKER_USER" --password-stdin
+            - IMAGE_NAME=$BITBUCKET_REPO_SLUG
+            - docker load --input "${IMAGE_NAME}.tar"
+            - VERSION="prod-0.1.${BITBUCKET_BUILD_NUMBER}"
+            - IMAGE=${DOCKERHUB_NAMESPACE}/${IMAGE_NAME}
+            - docker tag "${IMAGE_NAME}" "${IMAGE}:${VERSION}"
+            - docker push "${IMAGE}:${VERSION}"
+          services:
+            - docker
