@@ -5,7 +5,7 @@
 
 # Prerequisites: appropriate project structure should exist in the repository.
 
-image: gradle:7.4.0
+image: openjdk:17-alpine
 
 options:
   docker: true
@@ -18,7 +18,7 @@ pipelines:
           caches:
             - gradle
           script:
-            - gradle build
+            - ./gradlew build
           after-script:
             - pipe: atlassian/checkstyle-report:0.3.0
       - step:
@@ -33,6 +33,6 @@ pipelines:
             - gradle
           script:
             - export IMAGE_NAME=walshdanny700/campaign_optimisation
-            - gradle bootBuildImage --imageName=$IMAGE_NAME
+            - ./gradlew bootBuildImage --imageName=$IMAGE_NAME
             - docker login --username $DOCKER_USER --password $DOCKER_PASSWORD
             - docker push $IMAGE_NAME
