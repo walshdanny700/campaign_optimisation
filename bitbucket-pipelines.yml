@@ -7,6 +7,9 @@
 
 image: gradle:7.4.0
 
+options:
+  docker: true
+
 pipelines:
   default:
     - parallel:
