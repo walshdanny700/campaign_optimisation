@@ -10,7 +10,6 @@ image: openjdk:17-alpine
 
 pipelines:
   default:
-#    - parallel:
     - step:
         name: Build and Test
         script:
@@ -18,37 +17,3 @@ pipelines:
           - ./gradlew bootBuildImage --stacktrace  --imageName=$DOCKERHUB_NAMESPACE/$IMAGE_NAME
         services:
           - docker
-#      - step:
-#          name: Lint the Dockerfile
-#          image: hadolint/hadolint:latest-debian
-#          script:
-#            # Run a security scan for sensitive data.
-#            # See more security tools at https://bitbucket.org/product/features/pipelines/integrations?&category=security
-#            - hadolint Dockerfile
-#  branches:
-#    master:
-#      - step:
-#          name: Build and Test
-#          script:
-#            - IMAGE_NAME=$BITBUCKET_REPO_SLUG
-#            - docker build . --file Dockerfile --tag ${IMAGE_NAME}
-#            - docker save ${IMAGE_NAME} --output "${IMAGE_NAME}.tar"
-#          services:
-#            - docker
-#          caches:
-#            - docker
-#          artifacts:
-#            - "*.tar"
-#      - step:
-#          name: Deploy to Production
-#          deployment: Production
-#          script:
-#            - echo ${DOCKER_PASSWORD} | docker login --username "$DOCKER_USER" --password-stdin
-#            - IMAGE_NAME=$BITBUCKET_REPO_SLUG
-#            - docker load --input "${IMAGE_NAME}.tar"
-#            - VERSION="prod-0.1.${BITBUCKET_BUILD_NUMBER}"
-#            - IMAGE=${DOCKERHUB_NAMESPACE}/${IMAGE_NAME}
-#            - docker tag "${IMAGE_NAME}" "${IMAGE}:${VERSION}"
-#            - docker push "${IMAGE}:${VERSION}"
-#          services:
-#            - docker
