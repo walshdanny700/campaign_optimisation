@@ -3,7 +3,7 @@ name: Docker Deploy
 on:
   push:
     tags:
-      - '*'
+      - 'v*.*.*'
 
 jobs:
   deploy:
@@ -18,6 +18,6 @@ jobs:
         run: |
           docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
       - name: Gradlew Build Image
-        run: ./gradlew bootBuildImage --imageName=walshdanny700/campaign_optimisation
+        run: ./gradlew bootBuildImage --imageName=walshdanny700/campaign_optimisation:${{ github.ref_name }}
       - name: Push To DockerHub
-        run: docker push ${{secrets.DOCKER_USER}}/campaign_optimisation
+        run: docker push ${{secrets.DOCKER_USER}}/campaign_optimisation:${{ github.ref_name }}
