@@ -22,4 +22,9 @@ jobs:
       - name: Push To DockerHub
         run: docker push ${{ secrets.DOCKER_USER }}/campaign_optimisation:${{ github.ref_name }}
       - name: Push Readme To DockerHub
-        run: docker pushrm ${{ secrets.DOCKER_USER }}/campaign_optimisation:${{ github.ref_name }}
+        uses: christian-korneck/update-container-description-action@v1
+        with:
+          destination_container_repo: walshdanny700/campaign_optimisation:${{ github.ref_name }}
+          provider: dockerhub
+          short_description: 'Getting Started'
+          readme_file: 'README.md'
