@@ -20,4 +20,6 @@ jobs:
       - name: Gradlew Build Image
         run: ./gradlew bootBuildImage --imageName=walshdanny700/campaign_optimisation:${{ github.ref_name }}
       - name: Push To DockerHub
-        run: docker push ${{secrets.DOCKER_USER}}/campaign_optimisation:${{ github.ref_name }}
+        run: docker push ${{ secrets.DOCKER_USER }}/campaign_optimisation:${{ github.ref_name }}
+      - name: Push Readme To DockerHub
+        run: docker pushrm ${{ secrets.DOCKER_USER }}/campaign_optimisation:${{ github.ref_name }}
