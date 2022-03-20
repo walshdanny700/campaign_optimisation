@@ -13,16 +13,19 @@ jobs:
       - uses: actions/checkout@v1
       - name: Docker Login
         env:
-          DOCKER_USER: ${{secrets.DOCKER_USER}}
-          DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+          DOCKER_USER: ${{ secrets.DOCKER_USER }}
+          DOCKER_PASS: ${{ secrets.DOCKER_PASSWORD }}
         run: |
-          docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+          docker login -u $DOCKER_USER -p $DOCKER_PASS
       - name: Gradlew Build Image
         run: ./gradlew bootBuildImage --imageName=walshdanny700/campaign_optimisation:${{ github.ref_name }}
       - name: Push To DockerHub
         run: docker push ${{ secrets.DOCKER_USER }}/campaign_optimisation:${{ github.ref_name }}
       - name: Push Readme To DockerHub
         uses: christian-korneck/update-container-description-action@v1
+        env:
+          DOCKER_USER: ${{ secrets.DOCKER_USER }}
+          DOCKER_PASS: ${{ secrets.DOCKER_PASSWORD }}
         with:
           destination_container_repo: walshdanny700/campaign_optimisation:${{ github.ref_name }}
           provider: dockerhub
