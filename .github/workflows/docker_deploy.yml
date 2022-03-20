@@ -35,4 +35,4 @@ jobs:
           destination_container_repo: walshdanny700/campaign_optimisation:${{ github.ref_name }}
           provider: dockerhub
           short_description: 'Getting Started'
-          readme_file: 'DOCKER_README.md'
+          readme_file: './DOCKER_README.md'
