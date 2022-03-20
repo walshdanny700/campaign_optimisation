@@ -30,7 +30,7 @@ jobs:
       - name: Test 2
         run: ls -la ..
       - name: Test 3
-        run: ls -la ./github/home
+        run: ls -la ../campaign_optimisation
       - name: Push Readme To DockerHub
         uses: christian-korneck/update-container-description-action@v1
         env:
@@ -40,4 +40,4 @@ jobs:
           destination_container_repo: walshdanny700/campaign_optimisation:${{ github.ref_name }}
           provider: dockerhub
           short_description: 'Getting Started'
-          readme_file: './github/workspace/DOCKER_README.md'
+          readme_file: '../campaign_optimisation/DOCKER_README.md'
