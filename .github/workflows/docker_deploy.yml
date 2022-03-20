@@ -21,6 +21,8 @@ jobs:
         run: ./gradlew bootBuildImage --imageName=walshdanny700/campaign_optimisation:${{ github.ref_name }}
       - name: Push To DockerHub
         run: docker push ${{ secrets.DOCKER_USER }}/campaign_optimisation:${{ github.ref_name }}
+      - name: Test
+        run: ls
 
 
   DeployReadme:
