@@ -28,7 +28,7 @@ jobs:
       - name: Test 1
         run: ls -la
       - name: Test 2
-        run: ls -la ./github/workspace
+        run: ls -la ..
       - name: Test 3
         run: ls -la ./github/home
       - name: Push Readme To DockerHub
