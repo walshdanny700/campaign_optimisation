@@ -18,7 +18,7 @@ jobs:
         run: |
           docker login -u $DOCKER_USER -p $DOCKER_PASS
       - name: Gradlew Build Image
-        run: ./gradlew bootBuildImage --imageName=${{ secrets.DOCKER_USER }}/campaign_optimisation:${{ github.ref_name }} --imageName=${{ secrets.DOCKER_USER }}/campaign_optimisation:latest
+        run: ./gradlew bootBuildImage --imageName=${{ secrets.DOCKER_USER }}/campaign_optimisation:${{ github.ref_name }}
       - name: Push To DockerHub
         run: docker push ${{ secrets.DOCKER_USER }}/campaign_optimisation:${{ github.ref_name }}
       - name: Push Readme To DockerHub
@@ -31,14 +31,3 @@ jobs:
           provider: dockerhub
           short_description: 'Getting Started'
           readme_file: 'README.md'
-      - name: Push Readme To DockerHub
-        uses: christian-korneck/update-container-description-action@v1
-        env:
-          DOCKER_USER: ${{ secrets.DOCKER_USER }}
-          DOCKER_PASS: ${{ secrets.DOCKER_PASSWORD }}
-        with:
-          destination_container_repo: ${{ secrets.DOCKER_USER }}/campaign_optimisation:latest
-          provider: dockerhub
-          short_description: 'Getting Started'
-          readme_file: 'README.md'
-
