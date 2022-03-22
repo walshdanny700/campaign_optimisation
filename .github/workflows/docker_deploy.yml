@@ -29,17 +29,7 @@ jobs:
           DOCKER_USER: ${{ secrets.DOCKER_USER }}
           DOCKER_PASS: ${{ secrets.DOCKER_PASSWORD }}
         with:
-          destination_container_repo: ${{ secrets.DOCKER_USER }}/campaign_optimisation:latest
-          provider: dockerhub
-          short_description: 'Getting Started'
-          readme_file: 'README.md'
-      - name: Push Readme To DockerHub
-        uses: christian-korneck/update-container-description-action@v1
-        env:
-          DOCKER_USER: ${{ secrets.DOCKER_USER }}
-          DOCKER_PASS: ${{ secrets.DOCKER_PASSWORD }}
-        with:
-          destination_container_repo: ${{ secrets.DOCKER_USER }}/campaign_optimisation:${{ github.ref_name }}
+          destination_container_repo: ${{ secrets.DOCKER_USER }}/campaign_optimisation
           provider: dockerhub
           short_description: 'Getting Started'
           readme_file: 'README.md'
