@@ -25,12 +25,6 @@ jobs:
   DeployReadme:
     runs-on: ubuntu-latest
     steps:
-      - name: Test 1
-        run: ls -la
-      - name: Test 2
-        run: ls -la ..
-      - name: Test 3
-        run: ls -la ../campaign_optimisation
       - name: Push Readme To DockerHub
         uses: christian-korneck/update-container-description-action@v1
         env:
