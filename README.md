@@ -1,6 +1,23 @@
-# Getting Started
+# Docker
 
-### Installation Requirements
+Docker Image: [DockerHub](https://hub.docker.com/repository/docker/walshdanny700/campaign_optimisation)
+
+## Run Docker Image
+
+    sudo docker run -p 8080:8080 walshdanny700/campaign_optimisation
+
+### View Api Documentation
+
+    http://localhost:8080/docs/index.html
+
+___
+
+
+# GitHub
+
+GitHub Repo: [Github Repo](https://github.com/walshdanny700/campaign_optimisation)
+
+## Installation Requirements
 
 Java Version 11: [Amazon Corretto 11](https://docs.aws.amazon.com/corretto/latest/corretto-11-ug/generic-linux-install.html)
 
@@ -20,7 +37,11 @@ Inside Terminal Window of your IDE run the following commands in project root di
 
     2. gradlew bootRun
 
-#### Docker
+### View Api Documentation
+
+    http://localhost:8080/docs/index.html
+
+### Build Docker Image
 
     # Build Image With Gradle
     1. sudo ./gradlew bootBuildImage --imageName=walshdanny700/campaign_optimisation
@@ -29,6 +50,3 @@ Inside Terminal Window of your IDE run the following commands in project root di
 
     2. sudo docker run -p 8080:8080 walshdanny700/campaign_optimisation
 
-### View Api Documentation
-
-    http://localhost:8080/docs/index.html
