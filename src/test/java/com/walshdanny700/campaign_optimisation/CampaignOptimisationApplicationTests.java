@@ -23,4 +23,10 @@ class CampaignOptimisationApplicationTests {
 		SpringApplicationBuilder after = new CampaignOptimisationApplication().configure(before);
 		assertEquals(before, after);
 	}
+
+	@Test
+	void applicationStarts() {
+		CampaignOptimisationApplication.main(new String[] {});
+		assertTrue(true);
+	}
 }
