@@ -58,6 +58,9 @@ dependencies {
 	testImplementation group: "org.springframework.restdocs", name: "spring-restdocs-mockmvc", version: "${restdocsMockmvcVersion}"
 
 	asciidoctorExt 'org.springframework.restdocs:spring-restdocs-asciidoctor'
+
+	// https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
+	implementation group: 'org.apache.httpcomponents', name: 'httpclient', version: "${httpClientVersion}"
 }
 
 
@@ -118,44 +121,29 @@ asciidoctor {
 	configurations 'asciidoctorExt'
 }
 
-
-war {
-	enabled = true
-	archiveClassifier = '' //use empty string
-	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-	manifest {
-
-		attributes 'Main-Class': 'WEB-INF.classes.com.walshdanny700.campaign_optimisation.CampaignOptimisationApplication'
-		attributes 'Implementation-Version':  archiveVersion
-	}
-	from {
-		configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
-	} {
-		exclude "META-INF/*.SF"
-		exclude "META-INF/*.DSA"
-		exclude "META-INF/*.RSA"
-	}
-}
-
 task copyRestDocs(type: Copy) {
 	dependsOn asciidoctor
 	from "${asciidoctor.outputDir}"
 	into "static/docs"
 }
 
+task customFatWar(type: War) {
+	enabled = true
+	archiveClassifier = '' //use empty string
+	manifest {
+		attributes 'Main-Class': 'com.walshdanny700.campaign_optimisation.CampaignOptimisationApplication'
+	}
+	baseName = 'all-in-one-jar'
+	from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+	with war
+}
+
 bootRun {
 	dependsOn copyRestDocs
 }
 
-
-bootJar {
-	dependsOn copyRestDocs
-
-}
-
 bootWar {
 	dependsOn copyRestDocs
-
 }
 
 java {
