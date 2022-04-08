@@ -8,6 +8,7 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.web.server.LocalServerPort;
 
 import java.io.IOException;
 
@@ -20,6 +21,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class CampaignOptimisationApplicationTests {
 
+	@LocalServerPort
+	private int port;
 
 	@Test
 	void contextLoads() {
@@ -49,10 +52,7 @@ class CampaignOptimisationApplicationTests {
 	 */
 	@Test
 	void restDocsSanityCheck() throws IOException {
-		String port = System.getProperty("server.port");
-		int serverPort = (port == null) ? Integer.valueOf(8080) : Integer.valueOf(port);
-		String url = format("http://localhost:{0,number,#}/docs/index.html", serverPort);
-
+		String url = format("http://localhost:{0,number,#}/docs/index.html", port);
 
 		HttpClient client = HttpClientBuilder.create().build();
 		HttpResponse response = client.execute(new HttpGet(url));
