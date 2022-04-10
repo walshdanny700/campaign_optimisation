@@ -53,20 +53,23 @@ jobs:
         java-version: '17'
         cache: 'gradle'
     - name: Gradlew Build Image
-      run: ./gradlew bootBuildImage --imageName=${{ secrets.DOCKER_USER }}/campaign_optimisation:${{ github.ref_name }}
+      run: ./gradlew bootBuildImage --imageName=${{ secrets.DOCKER_USER }}/campaign_optimisation
     - name: Run my docker image
       run: |
-        docker run -p 8080:8080 walshdanny700/campaign_optimisation
+        docker run -p 8080:8080 ${{ secrets.DOCKER_USER }}/campaign_optimisation
 
   docker-test:
     runs-on: ubuntu-latest
     steps:
-    - name: Sleep for 180 seconds
-      run: sleep 180s
+    - name: Sleep for 140 seconds
+      run: sleep 140s
       shell: bash
     - name: Sanity Test on Docker Image
       run: echo "HTTP_STATUS=$($(curl -w '%{http_code}' -o >(cat >&3) 'http://localhost:8080/docs/index.html'))"  >> $GITHUB_ENV
-
+    - name: Stop Docker Image
+      run: |
+        docker stop ${{ secrets.DOCKER_USER }}/campaign_optimisation
+        docker rm ${{ secrets.DOCKER_USER }}/campaign_optimisation
     - name: Check Results
       uses: haya14busa/action-cond@v1
       with:
