@@ -54,11 +54,6 @@ jobs:
         cache: 'gradle'
     - name: Gradlew Build Image
       run: ./gradlew bootBuildImage --imageName=${{ secrets.DOCKER_USER }}/campaign_optimisation:${{ github.ref_name }}
-
-  docker-run:
-    runs-on: ubuntu-latest
-    needs: [docker-build]
-    steps:
     - name: Run my docker image
       run: |
         docker run -p 8080:8080 walshdanny700/campaign_optimisation
@@ -67,7 +62,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [docker-build]
     steps:
-    - name: Sleep for 30 seconds
+    - name: Sleep for 180 seconds
       run: sleep 30s
       shell: bash
     - name: Sanity Test on Docker Image
