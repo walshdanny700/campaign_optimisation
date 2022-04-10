@@ -15,9 +15,7 @@ ___
 
 # GitHub
 
-[![Gradle Build](https://github.com/walshdanny700/campaign_optimisation/actions/workflows/ci.yml/badge.svg)](https://github.com/walshdanny700/campaign_optimisation/actions/workflows/ci.yml)
-
-[![Coverage](.github/badges/jacoco.svg)](https://github.com/walshdanny700/campaign_optimisation/actions/workflows/ci.yml)
+[![Gradle Build](https://github.com/walshdanny700/campaign_optimisation/actions/workflows/ci.yml/badge.svg)](https://github.com/walshdanny700/campaign_optimisation/actions/workflows/ci.yml) [![Coverage](.github/badges/jacoco.svg)](https://github.com/walshdanny700/campaign_optimisation/actions/workflows/ci.yml)
 
 GitHub Repo: [Github Repo](https://github.com/walshdanny700/campaign_optimisation)
 

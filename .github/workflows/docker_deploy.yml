@@ -33,4 +33,4 @@ jobs:
           destination_container_repo: ${{ secrets.DOCKER_USER }}/campaign_optimisation
           provider: dockerhub
           short_description: 'Getting Started'
-          readme_file: 'README.md'
+          readme_file: 'DOCKER_README.md'
