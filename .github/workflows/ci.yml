@@ -49,14 +49,11 @@ jobs:
         docker run -p 8080:8080 walshdanny700/campaign_optimisation
 
     - name: Sanity Test on Docker Image
-      run: |
-        HTTP_STATUS=$(curl -w '%{http_code}' -o >(cat >&3) 'http://localhost:8080/docs/index.html')
-        echo "HTTP_STATUS=$HTTP_STATUS"
-        HTTP_STATUS=${{ HTTP_STATUS }} >> $GITHUB_ENV
+      run: echo "HTTP_STATUS=$($(curl -w '%{http_code}' -o >(cat >&3) 'http://localhost:8080/docs/index.html'))"  >> $GITHUB_ENV
 
     - name: Check Results
       uses: haya14busa/action-cond@v1
       with:
-        cond: ${{ HTTP_STATUS == 200 }}
+        cond: ${{ env.HTTP_STATUS == 200 }}
         if_false: exit 1
         if_true: exit 0
