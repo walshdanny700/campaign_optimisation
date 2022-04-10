@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.walshdanny700.campaign_optimisation.controller.CampaignGroupControllerIntegrationTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2022-04-10T17:19:37" hostname="fv-az212-963" time="6.424">
+<testsuite name="com.walshdanny700.campaign_optimisation.controller.CampaignGroupControllerIntegrationTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2022-04-10T17:34:16" hostname="fv-az292-138" time="5.798">
   <properties/>
-  <testcase name="givenGetRecommendationsForOptimisation_WhenValidOptimisationId_ThenReturnData()" classname="com.walshdanny700.campaign_optimisation.controller.CampaignGroupControllerIntegrationTest" time="1.634"/>
-  <testcase name="givenApplyLatestRecommendation_WhenOptimisationStatusApplied_ThenReturnZeroUpdated()" classname="com.walshdanny700.campaign_optimisation.controller.CampaignGroupControllerIntegrationTest" time="1.085"/>
-  <testcase name="givenGetCampaignsForGroup_WhenValidCampaignGroupId_ThenReturnData()" classname="com.walshdanny700.campaign_optimisation.controller.CampaignGroupControllerIntegrationTest" time="1.045"/>
-  <testcase name="givenGetOptimisationForGroup_WhenValidCampaignGroupId_ThenReturnData()" classname="com.walshdanny700.campaign_optimisation.controller.CampaignGroupControllerIntegrationTest" time="0.745"/>
-  <testcase name="givenApplyLatestRecommendation_WhenNotValidOptimisationId_ThenReturnZeroUpdated()" classname="com.walshdanny700.campaign_optimisation.controller.CampaignGroupControllerIntegrationTest" time="0.925"/>
-  <testcase name="givenGetCampaignGroup_WhenSelected_ThenReturnData()" classname="com.walshdanny700.campaign_optimisation.controller.CampaignGroupControllerIntegrationTest" time="0.974"/>
-  <system-out><![CDATA[2022-04-10 17:19:36.618  INFO 2009 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.walshdanny700.campaign_optimisation.controller.CampaignGroupControllerIntegrationTest], using SpringBootContextLoader
-2022-04-10 17:19:36.619  INFO 2009 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.walshdanny700.campaign_optimisation.controller.CampaignGroupControllerIntegrationTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-2022-04-10 17:19:36.621  INFO 2009 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.walshdanny700.campaign_optimisation.controller.CampaignGroupControllerIntegrationTest]: CampaignGroupControllerIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2022-04-10 17:19:36.642  INFO 2009 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.walshdanny700.campaign_optimisation.CampaignOptimisationApplication for test class com.walshdanny700.campaign_optimisation.controller.CampaignGroupControllerIntegrationTest
-2022-04-10 17:19:36.645  INFO 2009 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
-2022-04-10 17:19:36.647  INFO 2009 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@3b458a81, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@66366fb3, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@191b7cf2, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@51b25bfd, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@4634c2c8, org.springframework.test.context.support.DirtiesContextTestExecutionListener@13aa664a, org.springframework.test.context.transaction.TransactionalTestExecutionListener@51947421, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@123ab05d, org.springframework.test.context.event.EventPublishingTestExecutionListener@72781250, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@32a0b263, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@40e7fd6a, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@7981573, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@35c07d42, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@2c4e233, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@7db743ac]
+  <testcase name="givenGetRecommendationsForOptimisation_WhenValidOptimisationId_ThenReturnData()" classname="com.walshdanny700.campaign_optimisation.controller.CampaignGroupControllerIntegrationTest" time="1.66"/>
+  <testcase name="givenApplyLatestRecommendation_WhenOptimisationStatusApplied_ThenReturnZeroUpdated()" classname="com.walshdanny700.campaign_optimisation.controller.CampaignGroupControllerIntegrationTest" time="1.008"/>
+  <testcase name="givenGetCampaignsForGroup_WhenValidCampaignGroupId_ThenReturnData()" classname="com.walshdanny700.campaign_optimisation.controller.CampaignGroupControllerIntegrationTest" time="0.776"/>
+  <testcase name="givenGetOptimisationForGroup_WhenValidCampaignGroupId_ThenReturnData()" classname="com.walshdanny700.campaign_optimisation.controller.CampaignGroupControllerIntegrationTest" time="0.772"/>
+  <testcase name="givenApplyLatestRecommendation_WhenNotValidOptimisationId_ThenReturnZeroUpdated()" classname="com.walshdanny700.campaign_optimisation.controller.CampaignGroupControllerIntegrationTest" time="0.852"/>
+  <testcase name="givenGetCampaignGroup_WhenSelected_ThenReturnData()" classname="com.walshdanny700.campaign_optimisation.controller.CampaignGroupControllerIntegrationTest" time="0.715"/>
+  <system-out><![CDATA[2022-04-10 17:34:15.790  INFO 1867 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.walshdanny700.campaign_optimisation.controller.CampaignGroupControllerIntegrationTest], using SpringBootContextLoader
+2022-04-10 17:34:15.791  INFO 1867 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.walshdanny700.campaign_optimisation.controller.CampaignGroupControllerIntegrationTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2022-04-10 17:34:15.792  INFO 1867 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.walshdanny700.campaign_optimisation.controller.CampaignGroupControllerIntegrationTest]: CampaignGroupControllerIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2022-04-10 17:34:15.804  INFO 1867 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.walshdanny700.campaign_optimisation.CampaignOptimisationApplication for test class com.walshdanny700.campaign_optimisation.controller.CampaignGroupControllerIntegrationTest
+2022-04-10 17:34:15.806  INFO 1867 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2022-04-10 17:34:15.806  INFO 1867 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@177a48bb, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@3ea07b0a, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@7c2b4366, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@5fc7ae34, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@1a3d1ae7, org.springframework.test.context.support.DirtiesContextTestExecutionListener@27784a81, org.springframework.test.context.transaction.TransactionalTestExecutionListener@16e0d7b, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@633ab56c, org.springframework.test.context.event.EventPublishingTestExecutionListener@112261ce, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@74eb0d29, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@59fc31a, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@33389710, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@3116bca8, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@1d386de6, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@66c4fa48]
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -22,35 +22,35 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v2.6.4)
 
-2022-04-10 17:19:36.699  INFO 2009 --- [    Test worker] c.CampaignGroupControllerIntegrationTest : Starting CampaignGroupControllerIntegrationTest using Java 17.0.2 on fv-az212-963 with PID 2009 (started by runner in /home/runner/work/campaign_optimisation/campaign_optimisation)
-2022-04-10 17:19:36.700  INFO 2009 --- [    Test worker] c.CampaignGroupControllerIntegrationTest : The following 1 profile is active: "test"
-2022-04-10 17:19:36.898  INFO 2009 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-04-10 17:19:36.912  INFO 2009 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 4 JPA repository interfaces.
-2022-04-10 17:19:36.965  INFO 2009 --- [    Test worker] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
-2022-04-10 17:19:37.105  INFO 2009 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
-2022-04-10 17:19:37.107  INFO 2009 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-04-10 17:19:37.109  INFO 2009 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
-2022-04-10 17:19:37.135  INFO 2009 --- [    Test worker] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
-2022-04-10 17:19:37.136  INFO 2009 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 432 ms
-2022-04-10 17:19:37.215  INFO 2009 --- [    Test worker] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:2c32c134-2cfb-4c1c-b310-64f5a2c31d9f;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
-2022-04-10 17:19:37.236  INFO 2009 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 8.5.6 by Redgate
-2022-04-10 17:19:37.236  INFO 2009 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.6
-2022-04-10 17:19:37.236  INFO 2009 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : 
-2022-04-10 17:19:37.238  INFO 2009 --- [    Test worker] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:h2:mem:2c32c134-2cfb-4c1c-b310-64f5a2c31d9f (H2 2.1)
-2022-04-10 17:19:37.245  INFO 2009 --- [    Test worker] o.f.core.internal.command.DbValidate     : Successfully validated 2 migrations (execution time 00:00.001s)
-2022-04-10 17:19:37.247  INFO 2009 --- [    Test worker] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "PUBLIC"."flyway_schema_history" ...
-2022-04-10 17:19:37.253  INFO 2009 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Current version of schema "PUBLIC": << Empty Schema >>
-2022-04-10 17:19:37.255  INFO 2009 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Migrating schema "PUBLIC" to version "1 - create campaigngroup"
-2022-04-10 17:19:37.271  INFO 2009 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Migrating schema "PUBLIC" to version "2 - ingest data"
-2022-04-10 17:19:37.278  INFO 2009 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Successfully applied 2 migrations to schema "PUBLIC", now at version v2 (execution time 00:00.026s)
-2022-04-10 17:19:37.309  INFO 2009 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-04-10 17:19:37.313  INFO 2009 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2022-04-10 17:19:37.374  INFO 2009 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-04-10 17:19:37.374  INFO 2009 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-04-10 17:19:37.544  WARN 2009 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-04-10 17:19:37.830  INFO 2009 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 40347 (http) with context path ''
-2022-04-10 17:19:37.835  INFO 2009 --- [    Test worker] c.CampaignGroupControllerIntegrationTest : Started CampaignGroupControllerIntegrationTest in 1.184 seconds (JVM running for 14.786)
-2022-04-10 17:19:37.890  INFO 2009 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-04-10 17:34:15.837  INFO 1867 --- [    Test worker] c.CampaignGroupControllerIntegrationTest : Starting CampaignGroupControllerIntegrationTest using Java 17.0.2 on fv-az292-138 with PID 1867 (started by runner in /home/runner/work/campaign_optimisation/campaign_optimisation)
+2022-04-10 17:34:15.838  INFO 1867 --- [    Test worker] c.CampaignGroupControllerIntegrationTest : The following 1 profile is active: "test"
+2022-04-10 17:34:15.975  INFO 1867 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-04-10 17:34:15.984  INFO 1867 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 4 JPA repository interfaces.
+2022-04-10 17:34:16.015  INFO 1867 --- [    Test worker] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
+2022-04-10 17:34:16.116  INFO 1867 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2022-04-10 17:34:16.118  INFO 1867 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-10 17:34:16.119  INFO 1867 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-04-10 17:34:16.129  INFO 1867 --- [    Test worker] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2022-04-10 17:34:16.130  INFO 1867 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 291 ms
+2022-04-10 17:34:16.210  INFO 1867 --- [    Test worker] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:51c8f0c3-9398-4f7d-8626-395b2934e165;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2022-04-10 17:34:16.224  INFO 1867 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 8.5.6 by Redgate
+2022-04-10 17:34:16.226  INFO 1867 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.6
+2022-04-10 17:34:16.228  INFO 1867 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : 
+2022-04-10 17:34:16.231  INFO 1867 --- [    Test worker] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:h2:mem:51c8f0c3-9398-4f7d-8626-395b2934e165 (H2 2.1)
+2022-04-10 17:34:16.246  INFO 1867 --- [    Test worker] o.f.core.internal.command.DbValidate     : Successfully validated 2 migrations (execution time 00:00.002s)
+2022-04-10 17:34:16.248  INFO 1867 --- [    Test worker] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "PUBLIC"."flyway_schema_history" ...
+2022-04-10 17:34:16.258  INFO 1867 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Current version of schema "PUBLIC": << Empty Schema >>
+2022-04-10 17:34:16.264  INFO 1867 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Migrating schema "PUBLIC" to version "1 - create campaigngroup"
+2022-04-10 17:34:16.297  INFO 1867 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Migrating schema "PUBLIC" to version "2 - ingest data"
+2022-04-10 17:34:16.308  INFO 1867 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Successfully applied 2 migrations to schema "PUBLIC", now at version v2 (execution time 00:00.051s)
+2022-04-10 17:34:16.345  INFO 1867 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-04-10 17:34:16.350  INFO 1867 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-04-10 17:34:16.467  INFO 1867 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-04-10 17:34:16.468  INFO 1867 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-04-10 17:34:16.659  WARN 1867 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-04-10 17:34:16.889  INFO 1867 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 35327 (http) with context path ''
+2022-04-10 17:34:16.892  INFO 1867 --- [    Test worker] c.CampaignGroupControllerIntegrationTest : Started CampaignGroupControllerIntegrationTest in 1.081 seconds (JVM running for 11.716)
+2022-04-10 17:34:17.126  INFO 1867 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -60,38 +60,38 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v2.6.4)
 
-2022-04-10 17:19:37.917  INFO 2009 --- [    Test worker] c.CampaignGroupControllerIntegrationTest : Starting CampaignGroupControllerIntegrationTest using Java 17.0.2 on fv-az212-963 with PID 2009 (started by runner in /home/runner/work/campaign_optimisation/campaign_optimisation)
-2022-04-10 17:19:37.917  INFO 2009 --- [    Test worker] c.CampaignGroupControllerIntegrationTest : The following 1 profile is active: "test"
-2022-04-10 17:19:38.078  INFO 2009 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-04-10 17:19:38.092  INFO 2009 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 4 JPA repository interfaces.
-2022-04-10 17:19:38.126  INFO 2009 --- [    Test worker] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
-2022-04-10 17:19:38.222  INFO 2009 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
-2022-04-10 17:19:38.228  INFO 2009 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-04-10 17:19:38.229  INFO 2009 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
-2022-04-10 17:19:38.249  INFO 2009 --- [    Test worker] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
-2022-04-10 17:19:38.250  INFO 2009 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 332 ms
-2022-04-10 17:19:38.307  INFO 2009 --- [    Test worker] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:82351347-4ea4-4ac3-b151-24da09cad3c5;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
-2022-04-10 17:19:38.313  INFO 2009 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 8.5.6 by Redgate
-2022-04-10 17:19:38.313  INFO 2009 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.6
-2022-04-10 17:19:38.313  INFO 2009 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : 
-2022-04-10 17:19:38.315  INFO 2009 --- [    Test worker] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:h2:mem:82351347-4ea4-4ac3-b151-24da09cad3c5 (H2 2.1)
-2022-04-10 17:19:38.326  INFO 2009 --- [    Test worker] o.f.core.internal.command.DbValidate     : Successfully validated 2 migrations (execution time 00:00.000s)
-2022-04-10 17:19:38.330  INFO 2009 --- [    Test worker] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "PUBLIC"."flyway_schema_history" ...
-2022-04-10 17:19:38.343  INFO 2009 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Current version of schema "PUBLIC": << Empty Schema >>
-2022-04-10 17:19:38.351  INFO 2009 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Migrating schema "PUBLIC" to version "1 - create campaigngroup"
-2022-04-10 17:19:38.367  INFO 2009 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Migrating schema "PUBLIC" to version "2 - ingest data"
-2022-04-10 17:19:38.374  INFO 2009 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Successfully applied 2 migrations to schema "PUBLIC", now at version v2 (execution time 00:00.034s)
-2022-04-10 17:19:38.403  INFO 2009 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-04-10 17:19:38.407  INFO 2009 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2022-04-10 17:19:38.502  INFO 2009 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-04-10 17:19:38.503  INFO 2009 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-04-10 17:19:38.678  WARN 2009 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-04-10 17:19:38.899  INFO 2009 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 46169 (http) with context path ''
-2022-04-10 17:19:38.903  INFO 2009 --- [    Test worker] c.CampaignGroupControllerIntegrationTest : Started CampaignGroupControllerIntegrationTest in 1.009 seconds (JVM running for 15.854)
-2022-04-10 17:19:39.083  INFO 2009 --- [o-auto-3-exec-1] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-04-10 17:19:39.083  INFO 2009 --- [o-auto-3-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-04-10 17:19:39.084  INFO 2009 --- [o-auto-3-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2022-04-10 17:19:39.510  INFO 2009 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-04-10 17:34:17.168  INFO 1867 --- [    Test worker] c.CampaignGroupControllerIntegrationTest : Starting CampaignGroupControllerIntegrationTest using Java 17.0.2 on fv-az292-138 with PID 1867 (started by runner in /home/runner/work/campaign_optimisation/campaign_optimisation)
+2022-04-10 17:34:17.168  INFO 1867 --- [    Test worker] c.CampaignGroupControllerIntegrationTest : The following 1 profile is active: "test"
+2022-04-10 17:34:17.315  INFO 1867 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-04-10 17:34:17.326  INFO 1867 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 4 JPA repository interfaces.
+2022-04-10 17:34:17.357  INFO 1867 --- [    Test worker] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
+2022-04-10 17:34:17.434  INFO 1867 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2022-04-10 17:34:17.436  INFO 1867 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-10 17:34:17.437  INFO 1867 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-04-10 17:34:17.447  INFO 1867 --- [    Test worker] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2022-04-10 17:34:17.447  INFO 1867 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 276 ms
+2022-04-10 17:34:17.498  INFO 1867 --- [    Test worker] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:1527220c-e0ae-4580-bbba-9bd513ac8d3f;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2022-04-10 17:34:17.512  INFO 1867 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 8.5.6 by Redgate
+2022-04-10 17:34:17.512  INFO 1867 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.6
+2022-04-10 17:34:17.512  INFO 1867 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : 
+2022-04-10 17:34:17.513  INFO 1867 --- [    Test worker] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:h2:mem:1527220c-e0ae-4580-bbba-9bd513ac8d3f (H2 2.1)
+2022-04-10 17:34:17.525  INFO 1867 --- [    Test worker] o.f.core.internal.command.DbValidate     : Successfully validated 2 migrations (execution time 00:00.001s)
+2022-04-10 17:34:17.527  INFO 1867 --- [    Test worker] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "PUBLIC"."flyway_schema_history" ...
+2022-04-10 17:34:17.532  INFO 1867 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Current version of schema "PUBLIC": << Empty Schema >>
+2022-04-10 17:34:17.535  INFO 1867 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Migrating schema "PUBLIC" to version "1 - create campaigngroup"
+2022-04-10 17:34:17.548  INFO 1867 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Migrating schema "PUBLIC" to version "2 - ingest data"
+2022-04-10 17:34:17.559  INFO 1867 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Successfully applied 2 migrations to schema "PUBLIC", now at version v2 (execution time 00:00.027s)
+2022-04-10 17:34:17.587  INFO 1867 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-04-10 17:34:17.595  INFO 1867 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-04-10 17:34:17.685  INFO 1867 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-04-10 17:34:17.686  INFO 1867 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-04-10 17:34:17.825  WARN 1867 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-04-10 17:34:18.053  INFO 1867 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 35373 (http) with context path ''
+2022-04-10 17:34:18.057  INFO 1867 --- [    Test worker] c.CampaignGroupControllerIntegrationTest : Started CampaignGroupControllerIntegrationTest in 0.926 seconds (JVM running for 12.88)
+2022-04-10 17:34:18.238  INFO 1867 --- [o-auto-3-exec-1] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-10 17:34:18.238  INFO 1867 --- [o-auto-3-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-04-10 17:34:18.239  INFO 1867 --- [o-auto-3-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-04-10 17:34:18.575  INFO 1867 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -101,38 +101,38 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v2.6.4)
 
-2022-04-10 17:19:39.554  INFO 2009 --- [    Test worker] c.CampaignGroupControllerIntegrationTest : Starting CampaignGroupControllerIntegrationTest using Java 17.0.2 on fv-az212-963 with PID 2009 (started by runner in /home/runner/work/campaign_optimisation/campaign_optimisation)
-2022-04-10 17:19:39.554  INFO 2009 --- [    Test worker] c.CampaignGroupControllerIntegrationTest : The following 1 profile is active: "test"
-2022-04-10 17:19:39.722  INFO 2009 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-04-10 17:19:39.736  INFO 2009 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 4 JPA repository interfaces.
-2022-04-10 17:19:39.759  INFO 2009 --- [    Test worker] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
-2022-04-10 17:19:39.843  INFO 2009 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
-2022-04-10 17:19:39.844  INFO 2009 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-04-10 17:19:39.844  INFO 2009 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
-2022-04-10 17:19:39.854  INFO 2009 --- [    Test worker] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
-2022-04-10 17:19:39.855  INFO 2009 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 297 ms
-2022-04-10 17:19:39.903  INFO 2009 --- [    Test worker] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:86711eba-b0d1-4c9d-a2fc-9d33fc48642e;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
-2022-04-10 17:19:39.909  INFO 2009 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 8.5.6 by Redgate
-2022-04-10 17:19:39.909  INFO 2009 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.6
-2022-04-10 17:19:39.909  INFO 2009 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : 
-2022-04-10 17:19:39.910  INFO 2009 --- [    Test worker] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:h2:mem:86711eba-b0d1-4c9d-a2fc-9d33fc48642e (H2 2.1)
-2022-04-10 17:19:39.929  INFO 2009 --- [    Test worker] o.f.core.internal.command.DbValidate     : Successfully validated 2 migrations (execution time 00:00.001s)
-2022-04-10 17:19:39.931  INFO 2009 --- [    Test worker] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "PUBLIC"."flyway_schema_history" ...
-2022-04-10 17:19:39.936  INFO 2009 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Current version of schema "PUBLIC": << Empty Schema >>
-2022-04-10 17:19:39.939  INFO 2009 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Migrating schema "PUBLIC" to version "1 - create campaigngroup"
-2022-04-10 17:19:39.960  INFO 2009 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Migrating schema "PUBLIC" to version "2 - ingest data"
-2022-04-10 17:19:39.975  INFO 2009 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Successfully applied 2 migrations to schema "PUBLIC", now at version v2 (execution time 00:00.039s)
-2022-04-10 17:19:40.009  INFO 2009 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-04-10 17:19:40.018  INFO 2009 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2022-04-10 17:19:40.082  INFO 2009 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-04-10 17:19:40.082  INFO 2009 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-04-10 17:19:40.202  WARN 2009 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-04-10 17:19:40.434  INFO 2009 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 39647 (http) with context path ''
-2022-04-10 17:19:40.438  INFO 2009 --- [    Test worker] c.CampaignGroupControllerIntegrationTest : Started CampaignGroupControllerIntegrationTest in 0.924 seconds (JVM running for 17.39)
-2022-04-10 17:19:40.452  INFO 2009 --- [o-auto-4-exec-1] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-04-10 17:19:40.452  INFO 2009 --- [o-auto-4-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-04-10 17:19:40.452  INFO 2009 --- [o-auto-4-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-2022-04-10 17:19:40.590  INFO 2009 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-04-10 17:34:18.594  INFO 1867 --- [    Test worker] c.CampaignGroupControllerIntegrationTest : Starting CampaignGroupControllerIntegrationTest using Java 17.0.2 on fv-az292-138 with PID 1867 (started by runner in /home/runner/work/campaign_optimisation/campaign_optimisation)
+2022-04-10 17:34:18.594  INFO 1867 --- [    Test worker] c.CampaignGroupControllerIntegrationTest : The following 1 profile is active: "test"
+2022-04-10 17:34:18.738  INFO 1867 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-04-10 17:34:18.750  INFO 1867 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 4 JPA repository interfaces.
+2022-04-10 17:34:18.776  INFO 1867 --- [    Test worker] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
+2022-04-10 17:34:18.858  INFO 1867 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2022-04-10 17:34:18.861  INFO 1867 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-10 17:34:18.861  INFO 1867 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-04-10 17:34:18.875  INFO 1867 --- [    Test worker] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2022-04-10 17:34:18.875  INFO 1867 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 280 ms
+2022-04-10 17:34:18.932  INFO 1867 --- [    Test worker] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:9b62d407-2308-48b5-9deb-3b9a73809328;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2022-04-10 17:34:18.942  INFO 1867 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 8.5.6 by Redgate
+2022-04-10 17:34:18.943  INFO 1867 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.6
+2022-04-10 17:34:18.943  INFO 1867 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : 
+2022-04-10 17:34:18.946  INFO 1867 --- [    Test worker] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:h2:mem:9b62d407-2308-48b5-9deb-3b9a73809328 (H2 2.1)
+2022-04-10 17:34:18.955  INFO 1867 --- [    Test worker] o.f.core.internal.command.DbValidate     : Successfully validated 2 migrations (execution time 00:00.002s)
+2022-04-10 17:34:18.960  INFO 1867 --- [    Test worker] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "PUBLIC"."flyway_schema_history" ...
+2022-04-10 17:34:18.973  INFO 1867 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Current version of schema "PUBLIC": << Empty Schema >>
+2022-04-10 17:34:18.982  INFO 1867 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Migrating schema "PUBLIC" to version "1 - create campaigngroup"
+2022-04-10 17:34:19.005  INFO 1867 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Migrating schema "PUBLIC" to version "2 - ingest data"
+2022-04-10 17:34:19.016  INFO 1867 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Successfully applied 2 migrations to schema "PUBLIC", now at version v2 (execution time 00:00.043s)
+2022-04-10 17:34:19.042  INFO 1867 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-04-10 17:34:19.050  INFO 1867 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-04-10 17:34:19.129  INFO 1867 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-04-10 17:34:19.130  INFO 1867 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-04-10 17:34:19.246  WARN 1867 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-04-10 17:34:19.421  INFO 1867 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 41849 (http) with context path ''
+2022-04-10 17:34:19.424  INFO 1867 --- [    Test worker] c.CampaignGroupControllerIntegrationTest : Started CampaignGroupControllerIntegrationTest in 0.848 seconds (JVM running for 14.248)
+2022-04-10 17:34:19.434  INFO 1867 --- [o-auto-4-exec-1] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-10 17:34:19.435  INFO 1867 --- [o-auto-4-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-04-10 17:34:19.435  INFO 1867 --- [o-auto-4-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2022-04-10 17:34:19.584  INFO 1867 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -142,38 +142,38 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v2.6.4)
 
-2022-04-10 17:19:40.612  INFO 2009 --- [    Test worker] c.CampaignGroupControllerIntegrationTest : Starting CampaignGroupControllerIntegrationTest using Java 17.0.2 on fv-az212-963 with PID 2009 (started by runner in /home/runner/work/campaign_optimisation/campaign_optimisation)
-2022-04-10 17:19:40.612  INFO 2009 --- [    Test worker] c.CampaignGroupControllerIntegrationTest : The following 1 profile is active: "test"
-2022-04-10 17:19:40.727  INFO 2009 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-04-10 17:19:40.734  INFO 2009 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 4 JPA repository interfaces.
-2022-04-10 17:19:40.753  INFO 2009 --- [    Test worker] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
-2022-04-10 17:19:40.874  INFO 2009 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
-2022-04-10 17:19:40.875  INFO 2009 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-04-10 17:19:40.877  INFO 2009 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
-2022-04-10 17:19:40.890  INFO 2009 --- [    Test worker] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
-2022-04-10 17:19:40.893  INFO 2009 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 279 ms
-2022-04-10 17:19:40.953  INFO 2009 --- [    Test worker] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:aff5a5f7-ec0b-424d-af3b-0f89f6b341c9;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
-2022-04-10 17:19:40.968  INFO 2009 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 8.5.6 by Redgate
-2022-04-10 17:19:40.969  INFO 2009 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.6
-2022-04-10 17:19:40.973  INFO 2009 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : 
-2022-04-10 17:19:40.977  INFO 2009 --- [    Test worker] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:h2:mem:aff5a5f7-ec0b-424d-af3b-0f89f6b341c9 (H2 2.1)
-2022-04-10 17:19:41.000  INFO 2009 --- [    Test worker] o.f.core.internal.command.DbValidate     : Successfully validated 2 migrations (execution time 00:00.000s)
-2022-04-10 17:19:41.001  INFO 2009 --- [    Test worker] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "PUBLIC"."flyway_schema_history" ...
-2022-04-10 17:19:41.016  INFO 2009 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Current version of schema "PUBLIC": << Empty Schema >>
-2022-04-10 17:19:41.019  INFO 2009 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Migrating schema "PUBLIC" to version "1 - create campaigngroup"
-2022-04-10 17:19:41.049  INFO 2009 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Migrating schema "PUBLIC" to version "2 - ingest data"
-2022-04-10 17:19:41.057  INFO 2009 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Successfully applied 2 migrations to schema "PUBLIC", now at version v2 (execution time 00:00.040s)
-2022-04-10 17:19:41.088  INFO 2009 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-04-10 17:19:41.099  INFO 2009 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2022-04-10 17:19:41.200  INFO 2009 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-04-10 17:19:41.201  INFO 2009 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-04-10 17:19:41.350  WARN 2009 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-04-10 17:19:41.594  INFO 2009 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 43825 (http) with context path ''
-2022-04-10 17:19:41.597  INFO 2009 --- [    Test worker] c.CampaignGroupControllerIntegrationTest : Started CampaignGroupControllerIntegrationTest in 1.005 seconds (JVM running for 18.548)
-2022-04-10 17:19:41.604  INFO 2009 --- [o-auto-5-exec-1] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-04-10 17:19:41.604  INFO 2009 --- [o-auto-5-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-04-10 17:19:41.605  INFO 2009 --- [o-auto-5-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2022-04-10 17:19:41.657  INFO 2009 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-04-10 17:34:19.604  INFO 1867 --- [    Test worker] c.CampaignGroupControllerIntegrationTest : Starting CampaignGroupControllerIntegrationTest using Java 17.0.2 on fv-az292-138 with PID 1867 (started by runner in /home/runner/work/campaign_optimisation/campaign_optimisation)
+2022-04-10 17:34:19.604  INFO 1867 --- [    Test worker] c.CampaignGroupControllerIntegrationTest : The following 1 profile is active: "test"
+2022-04-10 17:34:19.710  INFO 1867 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-04-10 17:34:19.723  INFO 1867 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 4 JPA repository interfaces.
+2022-04-10 17:34:19.741  INFO 1867 --- [    Test worker] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
+2022-04-10 17:34:19.799  INFO 1867 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2022-04-10 17:34:19.800  INFO 1867 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-10 17:34:19.800  INFO 1867 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-04-10 17:34:19.809  INFO 1867 --- [    Test worker] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2022-04-10 17:34:19.809  INFO 1867 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 200 ms
+2022-04-10 17:34:19.855  INFO 1867 --- [    Test worker] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:42f68b0f-42c6-416b-b58a-98dd11f80d91;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2022-04-10 17:34:19.861  INFO 1867 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 8.5.6 by Redgate
+2022-04-10 17:34:19.861  INFO 1867 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.6
+2022-04-10 17:34:19.861  INFO 1867 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : 
+2022-04-10 17:34:19.864  INFO 1867 --- [    Test worker] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:h2:mem:42f68b0f-42c6-416b-b58a-98dd11f80d91 (H2 2.1)
+2022-04-10 17:34:19.868  INFO 1867 --- [    Test worker] o.f.core.internal.command.DbValidate     : Successfully validated 2 migrations (execution time 00:00.001s)
+2022-04-10 17:34:19.870  INFO 1867 --- [    Test worker] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "PUBLIC"."flyway_schema_history" ...
+2022-04-10 17:34:19.874  INFO 1867 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Current version of schema "PUBLIC": << Empty Schema >>
+2022-04-10 17:34:19.876  INFO 1867 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Migrating schema "PUBLIC" to version "1 - create campaigngroup"
+2022-04-10 17:34:19.895  INFO 1867 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Migrating schema "PUBLIC" to version "2 - ingest data"
+2022-04-10 17:34:19.905  INFO 1867 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Successfully applied 2 migrations to schema "PUBLIC", now at version v2 (execution time 00:00.029s)
+2022-04-10 17:34:19.930  INFO 1867 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-04-10 17:34:19.936  INFO 1867 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-04-10 17:34:20.006  INFO 1867 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-04-10 17:34:20.006  INFO 1867 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-04-10 17:34:20.124  WARN 1867 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-04-10 17:34:20.316  INFO 1867 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 35791 (http) with context path ''
+2022-04-10 17:34:20.320  INFO 1867 --- [    Test worker] c.CampaignGroupControllerIntegrationTest : Started CampaignGroupControllerIntegrationTest in 0.734 seconds (JVM running for 15.144)
+2022-04-10 17:34:20.328  INFO 1867 --- [o-auto-5-exec-1] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-10 17:34:20.328  INFO 1867 --- [o-auto-5-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-04-10 17:34:20.329  INFO 1867 --- [o-auto-5-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-04-10 17:34:20.366  INFO 1867 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -183,38 +183,38 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v2.6.4)
 
-2022-04-10 17:19:41.693  INFO 2009 --- [    Test worker] c.CampaignGroupControllerIntegrationTest : Starting CampaignGroupControllerIntegrationTest using Java 17.0.2 on fv-az212-963 with PID 2009 (started by runner in /home/runner/work/campaign_optimisation/campaign_optimisation)
-2022-04-10 17:19:41.694  INFO 2009 --- [    Test worker] c.CampaignGroupControllerIntegrationTest : The following 1 profile is active: "test"
-2022-04-10 17:19:41.790  INFO 2009 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-04-10 17:19:41.797  INFO 2009 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 4 JPA repository interfaces.
-2022-04-10 17:19:41.830  INFO 2009 --- [    Test worker] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
-2022-04-10 17:19:41.900  INFO 2009 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
-2022-04-10 17:19:41.901  INFO 2009 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-04-10 17:19:41.901  INFO 2009 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
-2022-04-10 17:19:41.911  INFO 2009 --- [    Test worker] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
-2022-04-10 17:19:41.911  INFO 2009 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 216 ms
-2022-04-10 17:19:41.957  INFO 2009 --- [    Test worker] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:7bb897b2-dee4-4b89-b423-b62dd8228c35;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
-2022-04-10 17:19:41.963  INFO 2009 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 8.5.6 by Redgate
-2022-04-10 17:19:41.963  INFO 2009 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.6
-2022-04-10 17:19:41.963  INFO 2009 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : 
-2022-04-10 17:19:41.964  INFO 2009 --- [    Test worker] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:h2:mem:7bb897b2-dee4-4b89-b423-b62dd8228c35 (H2 2.1)
-2022-04-10 17:19:41.968  INFO 2009 --- [    Test worker] o.f.core.internal.command.DbValidate     : Successfully validated 2 migrations (execution time 00:00.000s)
-2022-04-10 17:19:41.969  INFO 2009 --- [    Test worker] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "PUBLIC"."flyway_schema_history" ...
-2022-04-10 17:19:41.973  INFO 2009 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Current version of schema "PUBLIC": << Empty Schema >>
-2022-04-10 17:19:41.976  INFO 2009 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Migrating schema "PUBLIC" to version "1 - create campaigngroup"
-2022-04-10 17:19:41.987  INFO 2009 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Migrating schema "PUBLIC" to version "2 - ingest data"
-2022-04-10 17:19:41.992  INFO 2009 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Successfully applied 2 migrations to schema "PUBLIC", now at version v2 (execution time 00:00.019s)
-2022-04-10 17:19:42.015  INFO 2009 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-04-10 17:19:42.018  INFO 2009 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2022-04-10 17:19:42.060  INFO 2009 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-04-10 17:19:42.060  INFO 2009 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-04-10 17:19:42.175  WARN 2009 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-04-10 17:19:42.356  INFO 2009 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 34701 (http) with context path ''
-2022-04-10 17:19:42.359  INFO 2009 --- [    Test worker] c.CampaignGroupControllerIntegrationTest : Started CampaignGroupControllerIntegrationTest in 0.695 seconds (JVM running for 19.31)
-2022-04-10 17:19:42.366  INFO 2009 --- [o-auto-6-exec-1] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-04-10 17:19:42.366  INFO 2009 --- [o-auto-6-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-04-10 17:19:42.367  INFO 2009 --- [o-auto-6-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-2022-04-10 17:19:42.395  INFO 2009 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-04-10 17:34:20.408  INFO 1867 --- [    Test worker] c.CampaignGroupControllerIntegrationTest : Starting CampaignGroupControllerIntegrationTest using Java 17.0.2 on fv-az292-138 with PID 1867 (started by runner in /home/runner/work/campaign_optimisation/campaign_optimisation)
+2022-04-10 17:34:20.408  INFO 1867 --- [    Test worker] c.CampaignGroupControllerIntegrationTest : The following 1 profile is active: "test"
+2022-04-10 17:34:20.532  INFO 1867 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-04-10 17:34:20.538  INFO 1867 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 4 JPA repository interfaces.
+2022-04-10 17:34:20.555  INFO 1867 --- [    Test worker] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
+2022-04-10 17:34:20.619  INFO 1867 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2022-04-10 17:34:20.621  INFO 1867 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-10 17:34:20.621  INFO 1867 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-04-10 17:34:20.630  INFO 1867 --- [    Test worker] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2022-04-10 17:34:20.631  INFO 1867 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 221 ms
+2022-04-10 17:34:20.683  INFO 1867 --- [    Test worker] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:3170cbc3-577f-4b54-b8a9-6ad638ee9b54;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2022-04-10 17:34:20.694  INFO 1867 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 8.5.6 by Redgate
+2022-04-10 17:34:20.694  INFO 1867 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.6
+2022-04-10 17:34:20.695  INFO 1867 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : 
+2022-04-10 17:34:20.697  INFO 1867 --- [    Test worker] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:h2:mem:3170cbc3-577f-4b54-b8a9-6ad638ee9b54 (H2 2.1)
+2022-04-10 17:34:20.706  INFO 1867 --- [    Test worker] o.f.core.internal.command.DbValidate     : Successfully validated 2 migrations (execution time 00:00.001s)
+2022-04-10 17:34:20.710  INFO 1867 --- [    Test worker] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "PUBLIC"."flyway_schema_history" ...
+2022-04-10 17:34:20.723  INFO 1867 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Current version of schema "PUBLIC": << Empty Schema >>
+2022-04-10 17:34:20.732  INFO 1867 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Migrating schema "PUBLIC" to version "1 - create campaigngroup"
+2022-04-10 17:34:20.753  INFO 1867 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Migrating schema "PUBLIC" to version "2 - ingest data"
+2022-04-10 17:34:20.760  INFO 1867 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Successfully applied 2 migrations to schema "PUBLIC", now at version v2 (execution time 00:00.038s)
+2022-04-10 17:34:20.784  INFO 1867 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-04-10 17:34:20.787  INFO 1867 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-04-10 17:34:20.818  INFO 1867 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-04-10 17:34:20.819  INFO 1867 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-04-10 17:34:20.921  WARN 1867 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-04-10 17:34:21.092  INFO 1867 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 42823 (http) with context path ''
+2022-04-10 17:34:21.095  INFO 1867 --- [    Test worker] c.CampaignGroupControllerIntegrationTest : Started CampaignGroupControllerIntegrationTest in 0.721 seconds (JVM running for 15.919)
+2022-04-10 17:34:21.105  INFO 1867 --- [o-auto-6-exec-1] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-10 17:34:21.105  INFO 1867 --- [o-auto-6-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-04-10 17:34:21.106  INFO 1867 --- [o-auto-6-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-04-10 17:34:21.140  INFO 1867 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -224,40 +224,40 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v2.6.4)
 
-2022-04-10 17:19:42.432  INFO 2009 --- [    Test worker] c.CampaignGroupControllerIntegrationTest : Starting CampaignGroupControllerIntegrationTest using Java 17.0.2 on fv-az212-963 with PID 2009 (started by runner in /home/runner/work/campaign_optimisation/campaign_optimisation)
-2022-04-10 17:19:42.433  INFO 2009 --- [    Test worker] c.CampaignGroupControllerIntegrationTest : The following 1 profile is active: "test"
-2022-04-10 17:19:42.560  INFO 2009 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-04-10 17:19:42.573  INFO 2009 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 4 JPA repository interfaces.
-2022-04-10 17:19:42.604  INFO 2009 --- [    Test worker] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
-2022-04-10 17:19:42.685  INFO 2009 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
-2022-04-10 17:19:42.686  INFO 2009 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-04-10 17:19:42.687  INFO 2009 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
-2022-04-10 17:19:42.697  INFO 2009 --- [    Test worker] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
-2022-04-10 17:19:42.698  INFO 2009 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 264 ms
-2022-04-10 17:19:42.746  INFO 2009 --- [    Test worker] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:0ff6780c-e00a-407b-a9af-eb8bf926f5b4;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
-2022-04-10 17:19:42.752  INFO 2009 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 8.5.6 by Redgate
-2022-04-10 17:19:42.753  INFO 2009 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.6
-2022-04-10 17:19:42.753  INFO 2009 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : 
-2022-04-10 17:19:42.755  INFO 2009 --- [    Test worker] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:h2:mem:0ff6780c-e00a-407b-a9af-eb8bf926f5b4 (H2 2.1)
-2022-04-10 17:19:42.759  INFO 2009 --- [    Test worker] o.f.core.internal.command.DbValidate     : Successfully validated 2 migrations (execution time 00:00.000s)
-2022-04-10 17:19:42.761  INFO 2009 --- [    Test worker] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "PUBLIC"."flyway_schema_history" ...
-2022-04-10 17:19:42.765  INFO 2009 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Current version of schema "PUBLIC": << Empty Schema >>
-2022-04-10 17:19:42.768  INFO 2009 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Migrating schema "PUBLIC" to version "1 - create campaigngroup"
-2022-04-10 17:19:42.787  INFO 2009 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Migrating schema "PUBLIC" to version "2 - ingest data"
-2022-04-10 17:19:42.800  INFO 2009 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Successfully applied 2 migrations to schema "PUBLIC", now at version v2 (execution time 00:00.035s)
-2022-04-10 17:19:42.836  INFO 2009 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-04-10 17:19:42.841  INFO 2009 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2022-04-10 17:19:42.910  INFO 2009 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-04-10 17:19:42.911  INFO 2009 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-04-10 17:19:43.068  WARN 2009 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-04-10 17:19:43.279  INFO 2009 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 36187 (http) with context path ''
-2022-04-10 17:19:43.283  INFO 2009 --- [    Test worker] c.CampaignGroupControllerIntegrationTest : Started CampaignGroupControllerIntegrationTest in 0.884 seconds (JVM running for 20.234)
-2022-04-10 17:19:43.290  INFO 2009 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@20054016 testClass = CampaignGroupControllerIntegrationTest, testInstance = com.walshdanny700.campaign_optimisation.controller.CampaignGroupControllerIntegrationTest@674346bc, testMethod = givenApplyLatestRecommendation_WhenNotValidOptimisationId_ThenReturnZeroUpdated@CampaignGroupControllerIntegrationTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@1679473f testClass = CampaignGroupControllerIntegrationTest, locations = '{}', classes = '{class com.walshdanny700.campaign_optimisation.CampaignOptimisationApplication}', contextInitializerClasses = '[]', activeProfiles = '{test}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@72ee5d84, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@aa228537, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3fbfbf84, [ImportsContextCustomizer@71d93d18 key = [org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@4a7a965d, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@288cdaab, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@f446158, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@607fbe09], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> false, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@5afb7251]; rollback [true]
-2022-04-10 17:19:43.295  INFO 2009 --- [o-auto-7-exec-1] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-04-10 17:19:43.295  INFO 2009 --- [o-auto-7-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-04-10 17:19:43.296  INFO 2009 --- [o-auto-7-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2022-04-10 17:19:43.307  INFO 2009 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@20054016 testClass = CampaignGroupControllerIntegrationTest, testInstance = com.walshdanny700.campaign_optimisation.controller.CampaignGroupControllerIntegrationTest@674346bc, testMethod = givenApplyLatestRecommendation_WhenNotValidOptimisationId_ThenReturnZeroUpdated@CampaignGroupControllerIntegrationTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@1679473f testClass = CampaignGroupControllerIntegrationTest, locations = '{}', classes = '{class com.walshdanny700.campaign_optimisation.CampaignOptimisationApplication}', contextInitializerClasses = '[]', activeProfiles = '{test}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@72ee5d84, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@aa228537, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3fbfbf84, [ImportsContextCustomizer@71d93d18 key = [org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@4a7a965d, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@288cdaab, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@f446158, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@607fbe09], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> false, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
-2022-04-10 17:19:43.318  INFO 2009 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-04-10 17:34:21.175  INFO 1867 --- [    Test worker] c.CampaignGroupControllerIntegrationTest : Starting CampaignGroupControllerIntegrationTest using Java 17.0.2 on fv-az292-138 with PID 1867 (started by runner in /home/runner/work/campaign_optimisation/campaign_optimisation)
+2022-04-10 17:34:21.176  INFO 1867 --- [    Test worker] c.CampaignGroupControllerIntegrationTest : The following 1 profile is active: "test"
+2022-04-10 17:34:21.286  INFO 1867 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-04-10 17:34:21.297  INFO 1867 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 4 JPA repository interfaces.
+2022-04-10 17:34:21.322  INFO 1867 --- [    Test worker] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
+2022-04-10 17:34:21.396  INFO 1867 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2022-04-10 17:34:21.398  INFO 1867 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-10 17:34:21.399  INFO 1867 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-04-10 17:34:21.410  INFO 1867 --- [    Test worker] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2022-04-10 17:34:21.412  INFO 1867 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 235 ms
+2022-04-10 17:34:21.476  INFO 1867 --- [    Test worker] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:9b5be235-d6de-4989-82b0-581a47fc3668;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2022-04-10 17:34:21.481  INFO 1867 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 8.5.6 by Redgate
+2022-04-10 17:34:21.487  INFO 1867 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.6
+2022-04-10 17:34:21.487  INFO 1867 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : 
+2022-04-10 17:34:21.488  INFO 1867 --- [    Test worker] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:h2:mem:9b5be235-d6de-4989-82b0-581a47fc3668 (H2 2.1)
+2022-04-10 17:34:21.501  INFO 1867 --- [    Test worker] o.f.core.internal.command.DbValidate     : Successfully validated 2 migrations (execution time 00:00.000s)
+2022-04-10 17:34:21.502  INFO 1867 --- [    Test worker] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "PUBLIC"."flyway_schema_history" ...
+2022-04-10 17:34:21.506  INFO 1867 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Current version of schema "PUBLIC": << Empty Schema >>
+2022-04-10 17:34:21.508  INFO 1867 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Migrating schema "PUBLIC" to version "1 - create campaigngroup"
+2022-04-10 17:34:21.528  INFO 1867 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Migrating schema "PUBLIC" to version "2 - ingest data"
+2022-04-10 17:34:21.533  INFO 1867 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Successfully applied 2 migrations to schema "PUBLIC", now at version v2 (execution time 00:00.027s)
+2022-04-10 17:34:21.599  INFO 1867 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-04-10 17:34:21.603  INFO 1867 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-04-10 17:34:21.664  INFO 1867 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-04-10 17:34:21.668  INFO 1867 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-04-10 17:34:21.760  WARN 1867 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-04-10 17:34:21.949  INFO 1867 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 36311 (http) with context path ''
+2022-04-10 17:34:21.953  INFO 1867 --- [    Test worker] c.CampaignGroupControllerIntegrationTest : Started CampaignGroupControllerIntegrationTest in 0.81 seconds (JVM running for 16.776)
+2022-04-10 17:34:21.960  INFO 1867 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@2b99c232 testClass = CampaignGroupControllerIntegrationTest, testInstance = com.walshdanny700.campaign_optimisation.controller.CampaignGroupControllerIntegrationTest@73800309, testMethod = givenApplyLatestRecommendation_WhenNotValidOptimisationId_ThenReturnZeroUpdated@CampaignGroupControllerIntegrationTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@1838e02 testClass = CampaignGroupControllerIntegrationTest, locations = '{}', classes = '{class com.walshdanny700.campaign_optimisation.CampaignOptimisationApplication}', contextInitializerClasses = '[]', activeProfiles = '{test}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@72ee5d84, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@aa228537, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3fbfbf84, [ImportsContextCustomizer@7264ddf key = [org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@4a7a965d, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@288cdaab, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@f446158, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@607fbe09], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> false, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@24bf0a19]; rollback [true]
+2022-04-10 17:34:21.965  INFO 1867 --- [o-auto-7-exec-1] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-10 17:34:21.965  INFO 1867 --- [o-auto-7-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-04-10 17:34:21.965  INFO 1867 --- [o-auto-7-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2022-04-10 17:34:21.982  INFO 1867 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@2b99c232 testClass = CampaignGroupControllerIntegrationTest, testInstance = com.walshdanny700.campaign_optimisation.controller.CampaignGroupControllerIntegrationTest@73800309, testMethod = givenApplyLatestRecommendation_WhenNotValidOptimisationId_ThenReturnZeroUpdated@CampaignGroupControllerIntegrationTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@1838e02 testClass = CampaignGroupControllerIntegrationTest, locations = '{}', classes = '{class com.walshdanny700.campaign_optimisation.CampaignOptimisationApplication}', contextInitializerClasses = '[]', activeProfiles = '{test}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@72ee5d84, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@aa228537, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3fbfbf84, [ImportsContextCustomizer@7264ddf key = [org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@4a7a965d, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@288cdaab, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@f446158, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@607fbe09], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> false, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
+2022-04-10 17:34:21.991  INFO 1867 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -267,37 +267,37 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v2.6.4)
 
-2022-04-10 17:19:43.338  INFO 2009 --- [    Test worker] c.CampaignGroupControllerIntegrationTest : Starting CampaignGroupControllerIntegrationTest using Java 17.0.2 on fv-az212-963 with PID 2009 (started by runner in /home/runner/work/campaign_optimisation/campaign_optimisation)
-2022-04-10 17:19:43.338  INFO 2009 --- [    Test worker] c.CampaignGroupControllerIntegrationTest : The following 1 profile is active: "test"
-2022-04-10 17:19:43.439  INFO 2009 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-04-10 17:19:43.446  INFO 2009 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 4 JPA repository interfaces.
-2022-04-10 17:19:43.464  INFO 2009 --- [    Test worker] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
-2022-04-10 17:19:43.569  INFO 2009 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
-2022-04-10 17:19:43.570  INFO 2009 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-04-10 17:19:43.576  INFO 2009 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
-2022-04-10 17:19:43.596  INFO 2009 --- [    Test worker] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
-2022-04-10 17:19:43.596  INFO 2009 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 256 ms
-2022-04-10 17:19:43.648  INFO 2009 --- [    Test worker] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:8542eb42-84ec-4842-920d-0b34ccbd214b;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
-2022-04-10 17:19:43.654  INFO 2009 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 8.5.6 by Redgate
-2022-04-10 17:19:43.654  INFO 2009 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.6
-2022-04-10 17:19:43.654  INFO 2009 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : 
-2022-04-10 17:19:43.655  INFO 2009 --- [    Test worker] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:h2:mem:8542eb42-84ec-4842-920d-0b34ccbd214b (H2 2.1)
-2022-04-10 17:19:43.658  INFO 2009 --- [    Test worker] o.f.core.internal.command.DbValidate     : Successfully validated 2 migrations (execution time 00:00.000s)
-2022-04-10 17:19:43.660  INFO 2009 --- [    Test worker] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "PUBLIC"."flyway_schema_history" ...
-2022-04-10 17:19:43.664  INFO 2009 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Current version of schema "PUBLIC": << Empty Schema >>
-2022-04-10 17:19:43.666  INFO 2009 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Migrating schema "PUBLIC" to version "1 - create campaigngroup"
-2022-04-10 17:19:43.677  INFO 2009 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Migrating schema "PUBLIC" to version "2 - ingest data"
-2022-04-10 17:19:43.681  INFO 2009 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Successfully applied 2 migrations to schema "PUBLIC", now at version v2 (execution time 00:00.018s)
-2022-04-10 17:19:43.706  INFO 2009 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-04-10 17:19:43.709  INFO 2009 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2022-04-10 17:19:43.820  INFO 2009 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-04-10 17:19:43.820  INFO 2009 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-04-10 17:19:44.021  WARN 2009 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-04-10 17:19:44.248  INFO 2009 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 36737 (http) with context path ''
-2022-04-10 17:19:44.253  INFO 2009 --- [    Test worker] c.CampaignGroupControllerIntegrationTest : Started CampaignGroupControllerIntegrationTest in 0.933 seconds (JVM running for 21.204)
-2022-04-10 17:19:44.260  INFO 2009 --- [o-auto-8-exec-1] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-04-10 17:19:44.260  INFO 2009 --- [o-auto-8-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-04-10 17:19:44.261  INFO 2009 --- [o-auto-8-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-04-10 17:34:22.014  INFO 1867 --- [    Test worker] c.CampaignGroupControllerIntegrationTest : Starting CampaignGroupControllerIntegrationTest using Java 17.0.2 on fv-az292-138 with PID 1867 (started by runner in /home/runner/work/campaign_optimisation/campaign_optimisation)
+2022-04-10 17:34:22.014  INFO 1867 --- [    Test worker] c.CampaignGroupControllerIntegrationTest : The following 1 profile is active: "test"
+2022-04-10 17:34:22.107  INFO 1867 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-04-10 17:34:22.114  INFO 1867 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 4 JPA repository interfaces.
+2022-04-10 17:34:22.131  INFO 1867 --- [    Test worker] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
+2022-04-10 17:34:22.205  INFO 1867 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2022-04-10 17:34:22.206  INFO 1867 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-10 17:34:22.206  INFO 1867 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-04-10 17:34:22.216  INFO 1867 --- [    Test worker] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2022-04-10 17:34:22.216  INFO 1867 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 201 ms
+2022-04-10 17:34:22.257  INFO 1867 --- [    Test worker] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:43176272-64a4-47fb-8931-df7428dc3419;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2022-04-10 17:34:22.264  INFO 1867 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 8.5.6 by Redgate
+2022-04-10 17:34:22.265  INFO 1867 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.6
+2022-04-10 17:34:22.266  INFO 1867 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : 
+2022-04-10 17:34:22.272  INFO 1867 --- [    Test worker] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:h2:mem:43176272-64a4-47fb-8931-df7428dc3419 (H2 2.1)
+2022-04-10 17:34:22.277  INFO 1867 --- [    Test worker] o.f.core.internal.command.DbValidate     : Successfully validated 2 migrations (execution time 00:00.000s)
+2022-04-10 17:34:22.281  INFO 1867 --- [    Test worker] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "PUBLIC"."flyway_schema_history" ...
+2022-04-10 17:34:22.289  INFO 1867 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Current version of schema "PUBLIC": << Empty Schema >>
+2022-04-10 17:34:22.290  INFO 1867 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Migrating schema "PUBLIC" to version "1 - create campaigngroup"
+2022-04-10 17:34:22.310  INFO 1867 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Migrating schema "PUBLIC" to version "2 - ingest data"
+2022-04-10 17:34:22.319  INFO 1867 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Successfully applied 2 migrations to schema "PUBLIC", now at version v2 (execution time 00:00.034s)
+2022-04-10 17:34:22.349  INFO 1867 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-04-10 17:34:22.353  INFO 1867 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-04-10 17:34:22.405  INFO 1867 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-04-10 17:34:22.405  INFO 1867 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-04-10 17:34:22.506  WARN 1867 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-04-10 17:34:22.675  INFO 1867 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 41803 (http) with context path ''
+2022-04-10 17:34:22.680  INFO 1867 --- [    Test worker] c.CampaignGroupControllerIntegrationTest : Started CampaignGroupControllerIntegrationTest in 0.687 seconds (JVM running for 17.504)
+2022-04-10 17:34:22.688  INFO 1867 --- [o-auto-8-exec-1] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-10 17:34:22.688  INFO 1867 --- [o-auto-8-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-04-10 17:34:22.688  INFO 1867 --- [o-auto-8-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
