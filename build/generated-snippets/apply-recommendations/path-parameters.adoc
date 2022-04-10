@@ -1,0 +1,8 @@
+.+/api/v1/optimisations/{optimisationId}/recommendations/apply+
+|===
+|Parameter|Description
+
+|`+optimisationId+`
+|The Given Optimisation ID 
+
+|===

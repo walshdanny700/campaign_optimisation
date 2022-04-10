@@ -1,0 +1,8 @@
+.+/api/v1/campaigngroups/{campaignGroupId}/optimisations/latest+
+|===
+|Parameter|Description
+
+|`+campaignGroupId+`
+|ID of Campaign Group that this campaign belongs to
+
+|===
