@@ -1,0 +1,32 @@
+|===
+|Path|Type|Description
+
+|`+[]+`
+|`+Array+`
+|An array of Campaigns
+
+|`+[].id+`
+|`+Number+`
+|Unique Identifier for a Campaign
+
+|`+[].name+`
+|`+String+`
+|Name of Campaign
+
+|`+[].campaignGroupId+`
+|`+Number+`
+|ID of Campaign Group that this campaign belongs to
+
+|`+[].budget+`
+|`+Number+`
+|The allocated budget for a campaign
+
+|`+[].impressions+`
+|`+Number+`
+|The impressions for a given campaign
+
+|`+[].revenue+`
+|`+Number+`
+|The revenue for a given campaign
+
+|===

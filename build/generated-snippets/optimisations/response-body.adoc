@@ -1,0 +1,4 @@
+[source,options="nowrap"]
+----
+{"id":1,"campaignGroupId":1,"status":"NOT_APPLIED"}
+----

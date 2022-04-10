@@ -1,0 +1,16 @@
+|===
+|Path|Type|Description
+
+|`+id+`
+|`+Number+`
+|Unique Identifier for a Campaign
+
+|`+campaignGroupId+`
+|`+Number+`
+|ID of Campaign Group that this campaign belongs to
+
+|`+status+`
+|`+String+`
+|The status of the optimisation. Either it is applied or not applied to the Campaign Group
+
+|===

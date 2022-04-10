@@ -1,0 +1,24 @@
+|===
+|Path|Type|Description
+
+|`+[]+`
+|`+Array+`
+|An array of Recommendations For a given optimisation
+
+|`+[].id+`
+|`+Number+`
+|Unique Identifier for a Recommendation
+
+|`+[].campaignId+`
+|`+Number+`
+|The Campaign Id that this Recommendation is linked to
+
+|`+[].optimisationId+`
+|`+Number+`
+|The Optimisation Id that this Recommendation is linked to
+
+|`+[].recommendedBudget+`
+|`+Number+`
+|The recommended budget of this optimisation
+
+|===
