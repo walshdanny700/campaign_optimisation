@@ -50,7 +50,9 @@ jobs:
 
     - name: Sanity Test on Docker Image
       run: |
-        HTTP_STATUS=$(curl -w "%{http_code}" -o >(cat >&3) 'http://localhost:8080/docs/index.html')
+        HTTP_STATUS=$(curl -w '%{http_code}' -o >(cat >&3) 'http://localhost:8080/docs/index.html')
+        echo "HTTP_STATUS=$HTTP_STATUS"
+        HTTP_STATUS=${{ HTTP_STATUS }} >> $GITHUB_ENV
 
     - name: Check Results
       uses: haya14busa/action-cond@v1
