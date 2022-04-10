@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.026s</div>
+<div class="counter">0.030s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,12 +79,12 @@
 </thead>
 <tr>
 <td class="success">givenApplyRecommendations_WhenValidInput_ThenReturnRowsUpdated()</td>
-<td class="success">0.004s</td>
+<td class="success">0.005s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">givenGenerateLatestRecommendations_WhenValidInput_ThenReturnRecommendationList()</td>
-<td class="success">0.002s</td>
+<td class="success">0.003s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -94,12 +94,12 @@
 </tr>
 <tr>
 <td class="success">givenGetLatestRecommendations_WhenCampaignNotFound_ThenReturnEmptyList()</td>
-<td class="success">0.009s</td>
+<td class="success">0.011s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">givenGetLatestRecommendations_WhenInputNotFound_ThenReturnEmptyList()</td>
-<td class="success">0.002s</td>
+<td class="success">0.003s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -109,7 +109,7 @@
 </tr>
 <tr>
 <td class="success">givenGetOptimisationById_WhenValidOptimisationId_thenReturnValid()</td>
-<td class="success">0.003s</td>
+<td class="success">0.002s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -117,12 +117,12 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>2022-04-10 17:34:23.660  INFO 1867 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.walshdanny700.campaign_optimisation.services.OptimisationServiceTest], using SpringBootContextLoader
-2022-04-10 17:34:23.661  INFO 1867 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.walshdanny700.campaign_optimisation.services.OptimisationServiceTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-2022-04-10 17:34:23.662  INFO 1867 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.walshdanny700.campaign_optimisation.services.OptimisationServiceTest]: OptimisationServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2022-04-10 17:34:23.667  INFO 1867 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.walshdanny700.campaign_optimisation.CampaignOptimisationApplication for test class com.walshdanny700.campaign_optimisation.services.OptimisationServiceTest
-2022-04-10 17:34:23.668  INFO 1867 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
-2022-04-10 17:34:23.669  INFO 1867 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@694586ca, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4c9caea1, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@3ae836d8, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@36dce48d, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@736a574a, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5a2a1620, org.springframework.test.context.transaction.TransactionalTestExecutionListener@210fa54b, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@70a6c56b, org.springframework.test.context.event.EventPublishingTestExecutionListener@51570c32, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@5b469b2e, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@7bf48f0, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@41f448f1, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@28abea61, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@475b9bb1, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@3adea362]
+<pre>2022-04-10 17:39:26.721  INFO 2072 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.walshdanny700.campaign_optimisation.services.OptimisationServiceTest], using SpringBootContextLoader
+2022-04-10 17:39:26.721  INFO 2072 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.walshdanny700.campaign_optimisation.services.OptimisationServiceTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2022-04-10 17:39:26.722  INFO 2072 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.walshdanny700.campaign_optimisation.services.OptimisationServiceTest]: OptimisationServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2022-04-10 17:39:26.724  INFO 2072 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.walshdanny700.campaign_optimisation.CampaignOptimisationApplication for test class com.walshdanny700.campaign_optimisation.services.OptimisationServiceTest
+2022-04-10 17:39:26.724  INFO 2072 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2022-04-10 17:39:26.725  INFO 2072 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@3272be9d, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@6d297f85, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@19477589, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@2e38c8df, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@9190dd3, org.springframework.test.context.support.DirtiesContextTestExecutionListener@2f6a8e22, org.springframework.test.context.transaction.TransactionalTestExecutionListener@da34d7b, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@65b51220, org.springframework.test.context.event.EventPublishingTestExecutionListener@2403ecd0, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@5fe36dec, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@48bc2bfe, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@5d514db, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@3e8b1ddd, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@7ac39bed, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@5389bc90]
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -132,12 +132,12 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v2.6.4)
 
-2022-04-10 17:34:23.684  INFO 1867 --- [    Test worker] c.w.c.services.OptimisationServiceTest   : Starting OptimisationServiceTest using Java 17.0.2 on fv-az292-138 with PID 1867 (started by runner in /home/runner/work/campaign_optimisation/campaign_optimisation)
-2022-04-10 17:34:23.685  INFO 1867 --- [    Test worker] c.w.c.services.OptimisationServiceTest   : No active profile set, falling back to 1 default profile: &quot;default&quot;
-2022-04-10 17:34:23.938  INFO 1867 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2022-04-10 17:34:23.939  INFO 1867 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2022-04-10 17:34:23.939  INFO 1867 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
-2022-04-10 17:34:23.945  INFO 1867 --- [    Test worker] c.w.c.services.OptimisationServiceTest   : Started OptimisationServiceTest in 0.274 seconds (JVM running for 18.769)
+2022-04-10 17:39:26.741  INFO 2072 --- [    Test worker] c.w.c.services.OptimisationServiceTest   : Starting OptimisationServiceTest using Java 17.0.2 on fv-az399-239 with PID 2072 (started by runner in /home/runner/work/campaign_optimisation/campaign_optimisation)
+2022-04-10 17:39:26.741  INFO 2072 --- [    Test worker] c.w.c.services.OptimisationServiceTest   : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2022-04-10 17:39:27.004  INFO 2072 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2022-04-10 17:39:27.004  INFO 2072 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-04-10 17:39:27.005  INFO 2072 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2022-04-10 17:39:27.012  INFO 2072 --- [    Test worker] c.w.c.services.OptimisationServiceTest   : Started OptimisationServiceTest in 0.285 seconds (JVM running for 20.267)
 </pre>
 </span>
 </div>
@@ -149,7 +149,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.4</a> at Apr 10, 2022, 5:34:24 PM</p>
+<a href="http://www.gradle.org">Gradle 7.4</a> at Apr 10, 2022, 5:39:27 PM</p>
 </div>
 </div>
 </body>
