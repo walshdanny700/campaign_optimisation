@@ -1,23 +1,6 @@
-# Docker
-
-Docker Image: [DockerHub](https://hub.docker.com/repository/docker/walshdanny700/campaign_optimisation)
-
-## Run Docker Image
-
-    sudo docker run -p 8080:8080 walshdanny700/campaign_optimisation
-
-### View Api Documentation
-
-    http://localhost:8080/docs/index.html
-
-___
-
-
-# GitHub
+# README
 
 [![Gradle Build](https://github.com/walshdanny700/campaign_optimisation/actions/workflows/ci.yml/badge.svg)](https://github.com/walshdanny700/campaign_optimisation/actions/workflows/ci.yml) [![Coverage](.github/badges/jacoco.svg)](https://github.com/walshdanny700/campaign_optimisation/actions/workflows/ci.yml)
-
-GitHub Repo: [Github Repo](https://github.com/walshdanny700/campaign_optimisation)
 
 ## Installation Requirements
 
@@ -51,4 +34,8 @@ Inside Terminal Window of your IDE run the following commands in project root di
     2. sudo docker push walshdanny700/campaign_optimisation
 
     2. sudo docker run -p 8080:8080 walshdanny700/campaign_optimisation
+
+# Docker 
+
+DockerHub: [DockerHub](https://hub.docker.com/repository/docker/walshdanny700/campaign_optimisation)
 

@@ -1,6 +1,5 @@
-# Docker
+# README
 
-Docker Image: [DockerHub](https://hub.docker.com/repository/docker/walshdanny700/campaign_optimisation)
 
 ## Run Docker Image
 
@@ -9,3 +8,7 @@ Docker Image: [DockerHub](https://hub.docker.com/repository/docker/walshdanny700
 ### View Api Documentation
 
     http://localhost:8080/docs/index.html
+
+# GitHub
+
+GitHub Repo: [Github Repo](https://github.com/walshdanny700/campaign_optimisation)
