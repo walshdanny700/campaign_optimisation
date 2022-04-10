@@ -17,6 +17,7 @@ jobs:
           DOCKER_PASS: ${{ secrets.DOCKER_PASSWORD }}
         run: |
           docker login -u $DOCKER_USER -p $DOCKER_PASS
+      - uses: gradle/wrapper-validation-action@v1
       - name: Gradlew Build Image
         run: ./gradlew bootBuildImage --imageName=${{ secrets.DOCKER_USER }}/campaign_optimisation:${{ github.ref_name }}
       - name: Docker Tag Latest

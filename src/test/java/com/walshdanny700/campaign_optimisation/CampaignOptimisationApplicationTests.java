@@ -44,21 +44,21 @@ class CampaignOptimisationApplicationTests {
 		assertTrue(true);
 	}
 
-	/**
-	 * This will work when you run ./gradlew build
-	 * It is a sanity check for the spring rest docs
-	 *
-	 * @throws IOException
-	 */
-	@Test
-	void restDocsSanityCheck() throws IOException {
-		String url = format("http://localhost:{0,number,#}/docs/index.html", port);
-
-		HttpClient client = HttpClientBuilder.create().build();
-		HttpResponse response = client.execute(new HttpGet(url));
-		int statusCode = response.getStatusLine().getStatusCode();
-		assertThat(statusCode, equalTo(HttpStatus.SC_OK));
-
-	}
+//	/**
+//	 * This will work when you run ./gradlew build
+//	 * It is a sanity check for the spring rest docs
+//	 *
+//	 * @throws IOException
+//	 */
+//	@Test
+//	void restDocsSanityCheck() throws IOException {
+//		String url = format("http://localhost:{0,number,#}/docs/index.html", port);
+//
+//		HttpClient client = HttpClientBuilder.create().build();
+//		HttpResponse response = client.execute(new HttpGet(url));
+//		int statusCode = response.getStatusLine().getStatusCode();
+//		assertThat(statusCode, equalTo(HttpStatus.SC_OK));
+//
+//	}
 
 }
