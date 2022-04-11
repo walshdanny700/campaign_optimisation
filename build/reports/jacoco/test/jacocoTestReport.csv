@@ -1,7 +1,0 @@
-GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-campaign_optimisation,com.walshdanny700.campaign_optimisation.services,OptimisationService,0,150,0,8,0,33,0,11,0,7
-campaign_optimisation,com.walshdanny700.campaign_optimisation.services,CampaignService,0,11,0,0,0,4,0,2,0,2
-campaign_optimisation,com.walshdanny700.campaign_optimisation.services,CampaignGroupService,0,10,0,0,0,4,0,2,0,2
-campaign_optimisation,com.walshdanny700.campaign_optimisation,CampaignOptimisationApplication,0,17,0,0,0,4,0,3,0,3
-campaign_optimisation,com.walshdanny700.campaign_optimisation.entity,OptimisationStatus,0,15,0,0,0,3,0,1,0,1
-campaign_optimisation,com.walshdanny700.campaign_optimisation.controller,CampaignGroupController,0,216,0,12,0,39,0,12,0,6

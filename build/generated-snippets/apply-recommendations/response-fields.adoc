@@ -1,8 +1,0 @@
-|===
-|Path|Type|Description
-
-|`+message+`
-|`+String+`
-|Returns Number of rows updated for Campaigns
-
-|===

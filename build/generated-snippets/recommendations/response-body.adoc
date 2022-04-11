@@ -1,4 +1,0 @@
-[source,options="nowrap"]
-----
-[{"id":1,"campaignId":1,"optimisationId":1,"recommendedBudget":10}]
-----

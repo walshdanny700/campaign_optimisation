@@ -1,8 +1,0 @@
-[source,http,options="nowrap"]
-----
-HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
-Content-Length: 51
-
-{"id":1,"campaignGroupId":1,"status":"NOT_APPLIED"}
-----

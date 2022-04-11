@@ -5,6 +5,7 @@ plugins {
 	id 'org.asciidoctor.jvm.pdf' version "${asciidoctorVersion}"
 	id 'org.asciidoctor.jvm.gems' version "${asciidoctorVersion}"
 	id("org.asciidoctor.base") version "${asciidoctorVersion}"
+	id "com.bmuschko.docker-remote-api" version "${dockerRemoteApiVersion}"
 	id 'java'
 	id 'war'
 	id 'jacoco'
@@ -128,13 +129,18 @@ task copyRestDocs(type: Copy) {
 	into "static/docs"
 }
 
+war {
+	enabled = false
+	archiveClassifier=''
+}
+
 task customFatWar(type: War) {
 	enabled = true
 	archiveClassifier = '' //use empty string
 	manifest {
 		attributes 'Main-Class': 'com.walshdanny700.campaign_optimisation.CampaignOptimisationApplication'
 	}
-	baseName = 'all-in-one-jar'
+	archiveBaseName = 'all-in-one-war'
 	from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
 	with war
 }
@@ -159,3 +165,31 @@ if (hasProperty('buildScan')) {
 		termsOfServiceAgree = 'yes'
 	}
 }
+
+import com.bmuschko.gradle.docker.tasks.image.Dockerfile
+
+task createDockerfile(type: Dockerfile) {
+	destFile = project.file('build/docker/Dockerfile')
+	from 'openjdk:17-alpine'
+	label(['maintainer': "Danny Walsh 'walshdanny700@gmail.com'"])
+	copyFile("campaign_optimisation-${version}.war", 'app.war')
+	entryPoint 'java'
+	defaultCommand '-jar', 'app.war'
+	exposePort 8080
+}
+
+task syncWebAppArchive(type: Sync) {
+	dependsOn assemble
+	from war.archiveFile
+	into 'build/docker'
+}
+
+createDockerfile.dependsOn syncWebAppArchive
+
+import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
+
+task buildImage(type: DockerBuildImage) {
+	dependsOn createDockerfile
+}
+
+bootBuildImage.dependsOn buildImage

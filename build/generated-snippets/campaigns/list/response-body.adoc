@@ -1,4 +1,0 @@
-[source,options="nowrap"]
-----
-[{"id":1,"name":"Fist Campaign","campaignGroupId":1,"budget":1,"impressions":123,"revenue":10}]
-----

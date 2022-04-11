@@ -61,8 +61,8 @@ jobs:
   docker-test:
     runs-on: ubuntu-latest
     steps:
-    - name: Sleep for 140 seconds
-      run: sleep 140s
+    - name: Sleep for 130 seconds
+      run: sleep 130s
       shell: bash
     - name: Sanity Test on Docker Image
       run: echo "HTTP_STATUS=$($(curl -w '%{http_code}' -o >(cat >&3) 'http://localhost:8080/docs/index.html'))"  >> $GITHUB_ENV

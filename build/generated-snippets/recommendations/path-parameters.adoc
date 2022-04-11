@@ -1,8 +1,0 @@
-.+/api/v1/optimisations/{optimisationId}/recommendations/latest+
-|===
-|Parameter|Description
-
-|`+optimisationId+`
-|The Given Optimisation ID
-
-|===
