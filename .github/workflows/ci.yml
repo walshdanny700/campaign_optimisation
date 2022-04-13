@@ -2,6 +2,10 @@ name: Gradle Build
 
 on: [push, pull_request]
 
+env:
+  ## Sets environment variable
+  DOCKER_USER: walshdanny700
+
 jobs:
   build:
 
@@ -35,11 +39,11 @@ jobs:
         message: 'commit badge'
         add: '*.svg'
 
-    - name: Upload JaCoCo coverage report
-      uses: actions/upload-artifact@v2
-      with:
-        name: jacoco-report
-        path: build/reports/jacoco/test/jacocoHtml
+#    - name: Upload JaCoCo coverage report
+#      uses: actions/upload-artifact@v2
+#      with:
+#        name: jacoco-report
+#        path: build/reports/jacoco/test/jacocoHtml
 
   docker-build:
     runs-on: ubuntu-latest
@@ -53,26 +57,25 @@ jobs:
         java-version: '17'
         cache: 'gradle'
     - name: Gradlew Build Image
-      run: ./gradlew bootBuildImage --imageName=${{ secrets.DOCKER_USER }}/campaign_optimisation
-    - name: Run my docker image
-      run: |
-        docker run -p 8080:8080 ${{ secrets.DOCKER_USER }}/campaign_optimisation
+      run: ./gradlew bootBuildImage --imageName=${{ env.DOCKER_USER }}/campaign_optimisation
 
-  docker-test:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Sleep for 130 seconds
-      run: sleep 130s
-      shell: bash
-    - name: Sanity Test on Docker Image
-      run: echo "HTTP_STATUS=$($(curl -w '%{http_code}' -o >(cat >&3) 'http://localhost:8080/docs/index.html'))"  >> $GITHUB_ENV
-    - name: Stop Docker Image
-      run: |
-        docker stop ${{ secrets.DOCKER_USER }}/campaign_optimisation
-        docker rm ${{ secrets.DOCKER_USER }}/campaign_optimisation
-    - name: Check Results
-      uses: haya14busa/action-cond@v1
-      with:
-        cond: ${{ env.HTTP_STATUS == 200 }}
-        if_false: exit 1
-        if_true: exit 0
+
+#
+#  docker-test:
+#    runs-on: ubuntu-latest
+#    steps:
+#    - name: Sleep for 130 seconds
+#      run: sleep 130s
+#      shell: bash
+#    - name: Sanity Test on Docker Image
+#      run: echo "HTTP_STATUS=$($(curl -w '%{http_code}' -o >(cat >&3) 'http://localhost:8080/docs/index.html'))"  >> $GITHUB_ENV
+#    - name: Stop Docker Image
+#      run: |
+#        docker stop ${{ secrets.DOCKER_USER }}/campaign_optimisation
+#        docker rm ${{ secrets.DOCKER_USER }}/campaign_optimisation
+#    - name: Check Results
+#      uses: haya14busa/action-cond@v1
+#      with:
+#        cond: ${{ env.HTTP_STATUS == 200 }}
+#        if_false: exit 1
+#        if_true: exit 0
