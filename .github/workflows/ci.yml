@@ -2,9 +2,6 @@ name: Gradle Build
 
 on: [push, pull_request]
 
-env:
-  ## Sets environment variable
-  DOCKER_USER: walshdanny700
 
 jobs:
   build:
@@ -21,7 +18,7 @@ jobs:
         java-version: '17'
         cache: 'gradle'
     - name: Gradle build
-      run: ./gradlew clean build --scan
+      run: ./gradlew clean build --scan --warning-mode all
     - name: Generate JaCoCo Badge
       uses: cicirello/jacoco-badge-generator@v2.5.0
       with:
@@ -32,20 +29,8 @@ jobs:
         echo "coverage = ${{ steps.jacoco.outputs.coverage }}"
         echo "branch coverage = ${{ steps.jacoco.outputs.branches }}"
 
-    - name: Commit and push the badge (if it changed)
-      uses: EndBug/add-and-commit@v7
-      with:
-        default_author: github_actions
-        message: 'commit badge'
-        add: '*.svg'
 
-#    - name: Upload JaCoCo coverage report
-#      uses: actions/upload-artifact@v2
-#      with:
-#        name: jacoco-report
-#        path: build/reports/jacoco/test/jacocoHtml
-
-  docker-build:
+  docker-test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -56,26 +41,17 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
         cache: 'gradle'
-    - name: Gradlew Build Image
-      run: ./gradlew bootBuildImage --imageName=${{ env.DOCKER_USER }}/campaign_optimisation
+    - name: Gradle Integration Test
+      run: ./gradlew integrationTest -s
 
-
-#
-#  docker-test:
-#    runs-on: ubuntu-latest
-#    steps:
-#    - name: Sleep for 130 seconds
-#      run: sleep 130s
-#      shell: bash
-#    - name: Sanity Test on Docker Image
-#      run: echo "HTTP_STATUS=$($(curl -w '%{http_code}' -o >(cat >&3) 'http://localhost:8080/docs/index.html'))"  >> $GITHUB_ENV
-#    - name: Stop Docker Image
-#      run: |
-#        docker stop ${{ secrets.DOCKER_USER }}/campaign_optimisation
-#        docker rm ${{ secrets.DOCKER_USER }}/campaign_optimisation
-#    - name: Check Results
-#      uses: haya14busa/action-cond@v1
-#      with:
-#        cond: ${{ env.HTTP_STATUS == 200 }}
-#        if_false: exit 1
-#        if_true: exit 0
+  badge:
+    runs-on: ubuntu-latest
+    needs:  [build, docker-test]
+    steps:
+    - uses: actions/checkout@v3
+    - name: Commit and push the badge (if it changed)
+      uses: EndBug/add-and-commit@v7
+      with:
+        default_author: github_actions
+        message: 'commit badge'
+        add: '*.svg'

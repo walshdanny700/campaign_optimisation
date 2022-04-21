@@ -6,10 +6,14 @@ plugins {
 	id 'org.asciidoctor.jvm.gems' version "${asciidoctorVersion}"
 	id("org.asciidoctor.base") version "${asciidoctorVersion}"
 	id "com.bmuschko.docker-remote-api" version "${dockerRemoteApiVersion}"
+//	id "com.bmuschko.docker-java-application" version "${dockerRemoteApiVersion}"
 	id 'java'
 	id 'war'
 	id 'jacoco'
+	id 'idea'
 }
+//
+//apply from: 'gradle/integration-test.gradle'
 
 group = 'com.walshdanny700'
 version = '0.0.1-SNAPSHOT'
@@ -66,6 +70,13 @@ dependencies {
 
 	// https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
 	implementation group: 'org.apache.httpcomponents', name: 'httpclient', version: "${httpClientVersion}"
+
+//	// https://mvnrepository.com/artifact/org.springframework/spring-webflux
+//	testImplementation group: 'org.springframework', name: 'spring-webflux', version: "${springWebfluxVersion}"
+
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-webflux
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-webflux', version: "${springBootStarterVersion}"
+
 }
 
 
@@ -85,7 +96,6 @@ jacoco {
 	toolVersion = "0.8.7"
 	reportsDirectory = file("$buildDir/customJacocoReportDir") as Directory
 }
-
 
 jacocoTestReport {
 	dependsOn test // tests are required to run before generating the report
@@ -145,7 +155,7 @@ task customFatWar(type: War) {
 		attributes 'Main-Class': 'com.walshdanny700.campaign_optimisation.CampaignOptimisationApplication'
 	}
 	archiveBaseName = 'all-in-one-war'
-	from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+	from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
 	with war
 }
 
@@ -196,4 +206,73 @@ task buildImage(type: DockerBuildImage) {
 	dependsOn createDockerfile
 }
 
-bootBuildImage.dependsOn buildImage
+
+bootBuildImage{
+	dependsOn buildImage
+	imageName = 'walshdanny700/campaign_optimisation:latest'
+	publish = false
+}
+
+sourceSets {
+	integrationTest {
+		java.srcDir file('src/integrationTest/java')
+		resources.srcDir file('src/integrationTest/resources')
+		compileClasspath += sourceSets.main.compileClasspath + sourceSets.test.compileClasspath
+		runtimeClasspath += sourceSets.main.runtimeClasspath + sourceSets.test.runtimeClasspath
+	}
+}
+
+idea{
+	module {
+		sourceSets.integrationTest.allSource.srcDirs.each { srcDir -> module.testSourceDirs += srcDir }
+	}
+}
+
+task integrationTest(type: Test) {
+	useJUnitPlatform()
+	description = 'Runs the integration tests.'
+	group = 'verification'
+	testClassesDirs = sourceSets.integrationTest.output.classesDirs
+	classpath = sourceSets.integrationTest.runtimeClasspath
+
+	reports {
+
+		html.required = true
+
+		html.outputLocation  = file("${buildDir}/reports/test/integration-test" )
+	}
+
+	mustRunAfter test
+}
+//
+//check.dependsOn integrationTest
+//
+//import com.bmuschko.gradle.docker.tasks.container.DockerCreateContainer
+//import com.bmuschko.gradle.docker.tasks.container.DockerStartContainer
+//import com.bmuschko.gradle.docker.tasks.container.DockerStopContainer
+//import com.bmuschko.gradle.docker.tasks.container.DockerWaitContainer
+//
+//
+//task createContainer(type: DockerCreateContainer) {
+//	dependsOn bootBuildImage
+//	targetImageId(bootBuildImage.getImageName())
+//	exposePorts('tcp', [8080])
+//
+//}
+//
+//task startContainer(type: DockerStartContainer) {
+//	dependsOn createContainer
+//	targetContainerId(createContainer.containerId)
+//}
+//
+
+//
+//task stopContainer(type: DockerStopContainer) {
+//	targetContainerId(createContainer.containerId)
+//}
+
+integrationTest {
+	dependsOn build
+
+}
+
