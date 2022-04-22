@@ -135,6 +135,7 @@ asciidoctor {
 	dependsOn test
 	inputs.dir snippetsDir
 	configurations 'asciidoctorExt'
+	outputDir "${buildDir}/docs/asciidoc"
 }
 
 task copyRestDocs(type: Copy) {
@@ -146,6 +147,7 @@ task copyRestDocs(type: Copy) {
 war {
 	enabled = false
 	archiveClassifier=''
+	dependsOn copyRestDocs
 }
 
 task customFatWar(type: War) {
@@ -157,6 +159,8 @@ task customFatWar(type: War) {
 	archiveBaseName = 'all-in-one-war'
 	from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
 	with war
+
+
 }
 
 bootRun {
@@ -236,13 +240,10 @@ task integrationTest(type: Test) {
 	classpath = sourceSets.integrationTest.runtimeClasspath
 
 	reports {
-
 		html.required = true
-
 		html.outputLocation  = file("${buildDir}/reports/test/integration-test" )
 	}
 
-	mustRunAfter test
 }
 //
 //check.dependsOn integrationTest
@@ -271,8 +272,8 @@ task integrationTest(type: Test) {
 //	targetContainerId(createContainer.containerId)
 //}
 
-integrationTest {
-	dependsOn build
-
-}
+//integrationTest {
+//	dependsOn build
+//
+//}
 

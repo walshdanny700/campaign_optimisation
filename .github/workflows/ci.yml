@@ -29,8 +29,7 @@ jobs:
         echo "coverage = ${{ steps.jacoco.outputs.coverage }}"
         echo "branch coverage = ${{ steps.jacoco.outputs.branches }}"
 
-
-  docker-test:
+  integrationTest:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
