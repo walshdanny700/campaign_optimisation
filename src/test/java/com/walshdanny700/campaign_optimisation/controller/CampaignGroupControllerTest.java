@@ -10,14 +10,19 @@ import com.walshdanny700.campaign_optimisation.services.ICampaignService;
 import com.walshdanny700.campaign_optimisation.services.IOptimisationService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.extension.RegisterExtension;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.restdocs.RestDocumentationContextProvider;
+import org.springframework.restdocs.RestDocumentationExtension;
 import org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders;
 import org.springframework.restdocs.payload.FieldDescriptor;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.WebApplicationContext;
 
 import java.math.BigDecimal;
 import java.util.Collections;
@@ -27,6 +32,7 @@ import static org.hamcrest.core.Is.is;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
+import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.documentationConfiguration;
 import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath;
 import static org.springframework.restdocs.payload.PayloadDocumentation.responseFields;
 import static org.springframework.restdocs.request.RequestDocumentation.parameterWithName;
@@ -39,10 +45,13 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 
 @WebMvcTest(CampaignGroupController.class)
-@AutoConfigureRestDocs(outputDir = "build/generated-snippets")
+@ExtendWith({RestDocumentationExtension.class, SpringExtension.class})
 class CampaignGroupControllerTest {
 
-    @Autowired
+
+    @RegisterExtension
+    final RestDocumentationExtension restDocumentation = new RestDocumentationExtension ("custom");
+
     private MockMvc mockMvc;
 
     @MockBean
@@ -63,7 +72,13 @@ class CampaignGroupControllerTest {
     private Recommendation recommendation;
 
     @BeforeEach
-    public void setup(){
+    public void setup(WebApplicationContext webApplicationContext, RestDocumentationContextProvider restDocumentation){
+
+        this.mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext)
+                .apply(documentationConfiguration(restDocumentation)
+                .uris().withScheme("https")
+                .withHost("localhost").withPort(443))
+                .build();
 
         this.campaignGroup = CampaignGroup.builder()
                 .id(1L)
