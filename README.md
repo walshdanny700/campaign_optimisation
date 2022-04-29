@@ -20,11 +20,14 @@ Inside Terminal Window of your IDE run the following commands in project root di
     # for Linux ./gradlew
     1. gradlew build 
 
-    2. gradlew bootRun
+    2. ./gradlew bootRun
 
 ### View Api Documentation
 
     http://localhost:8080/docs/index.html
+
+    # view from docker image
+    https://localhost:8443/docs/index.html
 
 ### Build Docker Image
 
@@ -33,7 +36,7 @@ Inside Terminal Window of your IDE run the following commands in project root di
 
     2. sudo docker push walshdanny700/campaign_optimisation
 
-    2. sudo docker run -p 8080:8080 walshdanny700/campaign_optimisation
+    2. sudo docker run -p 8443:8443 walshdanny700/campaign_optimisation
 
 # Docker 
 

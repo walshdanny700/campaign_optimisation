@@ -29,10 +29,6 @@ class CampaignOptimisationApplicationTests {
 		assertEquals(before, after);
 	}
 
-//	@Test
-//	void applicationStarts() {
-//		CampaignOptimisationApplication.main(new String[] {});
-//		assertTrue(true);
-//	}
+
 
 }

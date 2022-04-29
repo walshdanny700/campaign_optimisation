@@ -3,18 +3,26 @@ package com.walshdanny700.campaign_optimisation.controller;
 import com.walshdanny700.campaign_optimisation.entity.Optimisation;
 import com.walshdanny700.campaign_optimisation.entity.OptimisationStatus;
 
+import io.netty.handler.ssl.SslContext;
+import io.netty.handler.ssl.SslContextBuilder;
+import io.netty.handler.ssl.util.InsecureTrustManagerFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
+
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.client.reactive.ClientHttpConnector;
+import org.springframework.http.client.reactive.ReactorClientHttpConnector;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import org.springframework.transaction.annotation.Transactional;
+import reactor.netty.http.client.HttpClient;
 
 
+import javax.net.ssl.SSLException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,17 +42,24 @@ class CampaignGroupControllerIntegrationTest {
     String url;
 
     @BeforeEach
-    public void setup() {
-        url = format("http://localhost:{0,number,#}", port);
-        this.webClient =  WebTestClient.bindToServer().baseUrl(url).build();
+    public void setup() throws SSLException {
+        url = format("https://localhost:{0,number,#}", port);
+        SslContext context = SslContextBuilder.forClient()
+                .trustManager(InsecureTrustManagerFactory.INSTANCE).build();
+
+        HttpClient httpClient = HttpClient.create().secure(t -> t.sslContext(context));
+
+        ClientHttpConnector httpConnector = new ReactorClientHttpConnector(
+                httpClient);
+        this.webClient =  WebTestClient.bindToServer(httpConnector).baseUrl(url).build();
 
     }
 
     @Test
     void givenGetCampaignGroup_WhenSelected_ThenReturnData(){
 
-        this.webClient.get().uri("/api/v1/campaigngroups/list")
-                .exchange().expectStatus().isEqualTo(HttpStatus.OK)
+        this.webClient.get().uri("/api/v1/campaigngroups/list").exchange()
+                .expectStatus().isEqualTo(HttpStatus.OK)
                 .expectBody().jsonPath("$.length()").isEqualTo(1)
                 .jsonPath("$[0].id").isEqualTo(1)
                 .jsonPath("$[0].name").isEqualTo("campaigns");
@@ -81,8 +96,9 @@ class CampaignGroupControllerIntegrationTest {
     @Test
     void givenGetRecommendationsForOptimisation_WhenValidOptimisationId_ThenReturnData(){
 
-        this.webClient.get().uri("/api/v1/optimisations/1/recommendations/latest").exchange().expectStatus()
-                .isEqualTo(HttpStatus.OK).expectBody().jsonPath("$.length()").isEqualTo(11)
+        this.webClient.get().uri("/api/v1/optimisations/1/recommendations/latest").exchange()
+                .expectStatus().isEqualTo(HttpStatus.OK)
+                .expectBody().jsonPath("$.length()").isEqualTo(11)
                 .jsonPath("$[0].id").isEqualTo(null)
                 .jsonPath("$[0].campaignId").isEqualTo(1)
                 .jsonPath("$[0].optimisationId").isEqualTo(1)
