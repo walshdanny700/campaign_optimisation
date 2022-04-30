@@ -11,48 +11,42 @@ import com.walshdanny700.campaign_optimisation.services.IOptimisationService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.jupiter.api.extension.RegisterExtension;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.context.ApplicationContext;
 import org.springframework.http.MediaType;
 import org.springframework.restdocs.RestDocumentationContextProvider;
 import org.springframework.restdocs.RestDocumentationExtension;
-import org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders;
 import org.springframework.restdocs.payload.FieldDescriptor;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.context.WebApplicationContext;
+import org.springframework.test.web.reactive.server.WebTestClient;
+
 
 import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.Optional;
-
-import static org.hamcrest.core.Is.is;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
-import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
-import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.documentationConfiguration;
+
+
 import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath;
 import static org.springframework.restdocs.payload.PayloadDocumentation.responseFields;
 import static org.springframework.restdocs.request.RequestDocumentation.parameterWithName;
 import static org.springframework.restdocs.request.RequestDocumentation.pathParameters;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.restdocs.webtestclient.WebTestClientRestDocumentation.document;
+import static org.springframework.restdocs.webtestclient.WebTestClientRestDocumentation.documentationConfiguration;
 
 
-@WebMvcTest(CampaignGroupController.class)
+@WebFluxTest(CampaignGroupController.class)
 @ExtendWith({RestDocumentationExtension.class, SpringExtension.class})
 class CampaignGroupControllerTest {
 
 
-    @RegisterExtension
-    final RestDocumentationExtension restDocumentation = new RestDocumentationExtension ("custom");
+    @Autowired
+    private ApplicationContext context;
+    private WebTestClient webTestClient;
 
-    private MockMvc mockMvc;
 
     @MockBean
     private IOptimisationService optimisationService;
@@ -72,12 +66,12 @@ class CampaignGroupControllerTest {
     private Recommendation recommendation;
 
     @BeforeEach
-    public void setup(WebApplicationContext webApplicationContext, RestDocumentationContextProvider restDocumentation){
+    public void setup(RestDocumentationContextProvider restDocumentation){
 
-        this.mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext)
-                .apply(documentationConfiguration(restDocumentation)
-                .uris().withScheme("https")
-                .withHost("localhost").withPort(443))
+        this.webTestClient = WebTestClient.bindToApplicationContext(this.context)
+                .configureClient()
+                .baseUrl("https://localhost:8443")
+                .filter(documentationConfiguration(restDocumentation))
                 .build();
 
         this.campaignGroup = CampaignGroup.builder()
@@ -106,13 +100,16 @@ class CampaignGroupControllerTest {
                 .recommendedBudget(BigDecimal.TEN).build();
     }
 
+
     @Test
     void givenZeroCampaignGroups_WhenGetRequest_thenReturnNotFound() throws Exception{
         given(this.campaignGroupService.getAllCampaignGroups()).willReturn(Collections.emptyList());
 
-        mockMvc.perform(get("/api/v1/campaigngroups/list"))
-                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-                .andExpect(status().isNotFound());
+        this.webTestClient.get().uri("/api/v1/campaigngroups/list")
+                .exchange()
+                .expectStatus().isNotFound();
+
+
     }
 
     @Test
@@ -123,16 +120,18 @@ class CampaignGroupControllerTest {
                 fieldWithPath("id").description("Unique Identifier of Campaign Group"),
                 fieldWithPath("name").description("Name of Campaign Group") };
 
-        mockMvc.perform(get("/api/v1/campaigngroups/list"))
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.[0].name", is(this.campaignGroup.getName())))
-                .andExpect(jsonPath("$.[0].id", is(this.campaignGroup.getId()), Long.class))
-                .andDo(document("campaign-groups/list", responseFields(
-                        fieldWithPath("[]")
+
+        this.webTestClient.get().uri("/api/v1/campaigngroups/list").accept(MediaType.APPLICATION_JSON)
+                .exchange().expectStatus().isOk()
+                .expectHeader().contentTypeCompatibleWith(MediaType.APPLICATION_JSON)
+                .expectBody()
+                .jsonPath("$[0].id").isEqualTo(this.campaignGroup.getId())
+                .jsonPath("$[0].name").isEqualTo(this.campaignGroup.getName())
+                .consumeWith( document("campaign-groups/list",
+                        responseFields(  fieldWithPath("[]")
                                 .description("An array of Campaign Groups"))
                                 .andWithPrefix("[].", campaignGroup)));
+
     }
 
     @Test
@@ -148,32 +147,37 @@ class CampaignGroupControllerTest {
                 fieldWithPath("revenue").description("The revenue for a given campaign")
         };
 
-        mockMvc.perform(RestDocumentationRequestBuilders.get("/api/v1/campaigngroups/{campaignGroupId}/campaigns/list", 1))
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.[0].name", is(this.campaign.getName())))
-                .andExpect(jsonPath("$.[0].id", is(this.campaign.getId()), Long.class))
-                .andExpect(jsonPath("$.[0].campaignGroupId", is(this.campaign.getCampaignGroupId()), Long.class))
-                .andExpect(jsonPath("$.[0].budget", is(this.campaign.getBudget()), BigDecimal.class))
-                .andExpect(jsonPath("$.[0].impressions", is(this.campaign.getImpressions()), Long.class))
-                .andExpect(jsonPath("$.[0].revenue", is(this.campaign.getRevenue()), BigDecimal.class))
-                .andDo(document("campaigns/list",
+        this.webTestClient.get().uri("/api/v1/campaigngroups/{campaignGroupId}/campaigns/list", 1)
+                .accept(MediaType.APPLICATION_JSON)
+                .exchange().expectStatus().isOk()
+                .expectHeader().contentTypeCompatibleWith(MediaType.APPLICATION_JSON)
+                .expectBody()
+                .jsonPath("$.[0].id").isEqualTo(this.campaign.getId())
+                .jsonPath("$.[0].name").isEqualTo(this.campaign.getName())
+                .jsonPath("$.[0].campaignGroupId").isEqualTo(this.campaign.getCampaignGroupId())
+                .jsonPath("$.[0].budget").isEqualTo(this.campaign.getBudget())
+                .jsonPath("$.[0].impressions").isEqualTo(this.campaign.getImpressions())
+                .jsonPath("$.[0].revenue").isEqualTo(this.campaign.getRevenue())
+                .consumeWith(document("campaigns/list",
                         responseFields(fieldWithPath("[]")
-                                .description("An array of Campaigns"))
+                        .description("An array of Campaigns"))
                                 .andWithPrefix("[].", campaignFieldDescriptor),
                         pathParameters(
                                 parameterWithName("campaignGroupId").description("ID of Campaign Group that this campaign belongs to")
-                        )));
+                        )
+                ));
+
     }
 
     @Test
     void givenCampaignGroupId_whenZeroCampaignsForGroup_thenReturnNotFound() throws Exception{
         given(this.campaignService.getAllCampaignsForCampaignGroupId(any())).willReturn(Collections.emptyList());
 
-        mockMvc.perform(get("/api/v1/campaigngroups/1/campaigns/list"))
-                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-                .andExpect(status().isNotFound());
+        this.webTestClient.get().uri("/api/v1/campaigngroups/1/campaigns/list")
+                .accept(MediaType.APPLICATION_JSON)
+                .exchange()
+                .expectStatus().isNotFound()
+                .expectHeader().contentTypeCompatibleWith(MediaType.APPLICATION_JSON);
 
     }
 
@@ -187,18 +191,20 @@ class CampaignGroupControllerTest {
                 fieldWithPath("status").description("The status of the optimisation. Either it is applied or not applied to the Campaign Group")
         };
 
-        mockMvc.perform(RestDocumentationRequestBuilders.get("/api/v1/campaigngroups/{campaignGroupId}/optimisations/latest", 1))
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.id", is(this.optimisation.getId()), Long.class))
-                .andExpect(jsonPath("$.campaignGroupId", is(this.optimisation.getCampaignGroupId()), Long.class))
-                .andExpect(jsonPath("$.status", is(this.optimisation.getStatus().name())))
-                .andDo(document("optimisations",
+        this.webTestClient.get().uri("/api/v1/campaigngroups/{campaignGroupId}/optimisations/latest", 1)
+                .accept(MediaType.APPLICATION_JSON)
+                .exchange()
+                .expectStatus().isOk()
+                .expectHeader().contentTypeCompatibleWith(MediaType.APPLICATION_JSON)
+                .expectBody()
+                .jsonPath("$.id").isEqualTo(this.optimisation.getId())
+                .jsonPath("$.campaignGroupId").isEqualTo(this.optimisation.getCampaignGroupId())
+                .jsonPath("$.status").isEqualTo(this.optimisation.getStatus().name())
+                .consumeWith(document("optimisations",
                         responseFields(optimisations),
                         pathParameters(
-                                parameterWithName("campaignGroupId").description("ID of Campaign Group that this campaign belongs to")
-                        )));
+                                parameterWithName("campaignGroupId").description("ID of Campaign Group that this campaign belongs to"))));
+
     }
 
 
@@ -206,9 +212,10 @@ class CampaignGroupControllerTest {
     void givenCampaignGroupId_whenZeroOptimisationsForGroup_thenReturnNotFound() throws Exception{
         given(this.optimisationService.getLatestOptimisation(any())).willReturn(Optional.empty());
 
-        mockMvc.perform(RestDocumentationRequestBuilders.get("/api/v1/campaigngroups/{campaignGroupId}/optimisations/latest", 1))
-                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-                .andExpect(status().isNotFound());
+        this.webTestClient.get().uri("/api/v1/campaigngroups/{campaignGroupId}/optimisations/latest", 1)
+                .accept(MediaType.APPLICATION_JSON)
+                .exchange()
+                .expectStatus().isNotFound();
 
     }
 
@@ -224,21 +231,23 @@ class CampaignGroupControllerTest {
                 fieldWithPath("recommendedBudget").description("The recommended budget of this optimisation")
         };
 
-        mockMvc.perform(RestDocumentationRequestBuilders.get("/api/v1/optimisations/{optimisationId}/recommendations/latest", 1))
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.[0].id", is(this.recommendation.getId()), Long.class))
-                .andExpect(jsonPath("$.[0].campaignId", is(this.recommendation.getCampaignId()), Long.class))
-                .andExpect(jsonPath("$.[0].optimisationId", is(this.recommendation.getOptimisationId()), Long.class))
-                .andExpect(jsonPath("$.[0].recommendedBudget", is(this.recommendation.getRecommendedBudget()), BigDecimal.class))
-                .andDo(document("recommendations",
+
+        this.webTestClient.get().uri("/api/v1/optimisations/{optimisationId}/recommendations/latest", 1)
+                .accept(MediaType.APPLICATION_JSON)
+                .exchange()
+                .expectStatus().isOk()
+                .expectHeader().contentTypeCompatibleWith(MediaType.APPLICATION_JSON)
+                .expectBody()
+                .jsonPath("$.[0].id").isEqualTo(this.recommendation.getId())
+                .jsonPath("$.[0].campaignId").isEqualTo(this.recommendation.getCampaignId())
+                .jsonPath("$.[0].optimisationId").isEqualTo(this.recommendation.getOptimisationId())
+                .jsonPath("$.[0].recommendedBudget").isEqualTo(this.recommendation.getRecommendedBudget())
+                .consumeWith(document("recommendations",
                         responseFields(fieldWithPath("[]")
                                 .description("An array of Recommendations For a given optimisation"))
                                 .andWithPrefix("[].", recommendationFieldDescriptor),
                         pathParameters(
-                                parameterWithName("optimisationId").description("The Given Optimisation ID")
-                        )));
+                                parameterWithName("optimisationId").description("The Given Optimisation ID")  )));
 
     }
 
@@ -246,12 +255,13 @@ class CampaignGroupControllerTest {
     void givenOptimisationId_whenZeroRecommendationsForOptimisation_thenReturnNotFound() throws Exception{
         given(this.optimisationService.getLatestRecommendations(any())).willReturn(Collections.emptyList());
 
-        mockMvc.perform(RestDocumentationRequestBuilders.get("/api/v1/optimisations/{optimisationId}/recommendations/latest", 1))
-                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-                .andExpect(status().isNotFound());
+        this.webTestClient.get().uri("/api/v1/optimisations/{optimisationId}/recommendations/latest", 1)
+                .accept(MediaType.APPLICATION_JSON)
+                .exchange()
+                .expectStatus().isNotFound()
+                .expectHeader().contentTypeCompatibleWith(MediaType.APPLICATION_JSON);
 
     }
-
 
     @Test
     void givenOptimisationId_whenApplyRecommendation_thenCampaignBudgetUpdated() throws Exception{
@@ -260,19 +270,19 @@ class CampaignGroupControllerTest {
         this.campaign.setBudget(this.recommendation.getRecommendedBudget());
         given(this.optimisationService.applyRecommendations(any(), any())).willReturn(1);
 
-
-        mockMvc.perform(RestDocumentationRequestBuilders.post("/api/v1/optimisations/{optimisationId}/recommendations/apply", this.optimisation.getId()))
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.message", is("Campaigns Updated 1")))
-                .andDo(document("apply-recommendations",
+        this.webTestClient.post().uri("/api/v1/optimisations/{optimisationId}/recommendations/apply", this.optimisation.getId())
+                .accept(MediaType.APPLICATION_JSON)
+                .exchange()
+                .expectStatus().isOk()
+                .expectHeader().contentTypeCompatibleWith(MediaType.APPLICATION_JSON)
+                .expectBody()
+                .jsonPath("$.message").isEqualTo("Campaigns Updated 1")
+                .consumeWith(document("apply-recommendations",
                         responseFields(fieldWithPath("message")
                                 .description("Returns Number of rows updated for Campaigns")),
                         pathParameters(
                                 parameterWithName("optimisationId").description("The Given Optimisation ID ")
                         )));
-
 
     }
 

@@ -66,6 +66,14 @@ dependencies {
 	//Rest Docs  https://mvnrepository.com/artifact/org.springframework.restdocs/spring-restdocs-mockmvc
 	testImplementation group: "org.springframework.restdocs", name: "spring-restdocs-mockmvc", version: "${restdocsMockmvcVersion}"
 
+	// https://mvnrepository.com/artifact/org.springframework.restdocs/spring-restdocs-webtestclient
+	implementation group: 'org.springframework.restdocs', name: 'spring-restdocs-webtestclient', version:  "${restdocsMockmvcVersion}"
+
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-test-autoconfigure
+	testImplementation group: 'org.springframework.boot', name: 'spring-boot-test-autoconfigure', version: '2.6.7'
+
+
+
 	asciidoctorExt 'org.springframework.restdocs:spring-restdocs-asciidoctor'
 
 	// https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
@@ -132,27 +140,30 @@ jacocoTestCoverageVerification {
 }
 
 asciidoctor {
-	dependsOn test
+	attributes 'snippets': snippetsDir
 	inputs.dir snippetsDir
 	configurations 'asciidoctorExt'
-	outputDir "${buildDir}/docs/asciidoc"
+//	outputDir "${buildDir}/docs/asciidoc"
+	sourceDir 'src/docs/asciidoc'
+	outputDir "build/asciidoc/html5"
+	dependsOn test
 }
 
-task copyRestDocs(type: Copy) {
-	dependsOn asciidoctor
-	from "${asciidoctor.outputDir}"
-	into "static/docs"
-}
 
 war {
 	enabled = false
 	archiveClassifier=''
-	dependsOn copyRestDocs
+
 }
 
 task customFatWar(type: War) {
 	enabled = true
 	archiveClassifier = '' //use empty string
+	dependsOn asciidoctor
+	from ("build/asciidoc/html5"){
+		include '**/*.*'
+	}
+
 	manifest {
 		attributes 'Main-Class': 'com.walshdanny700.campaign_optimisation.CampaignOptimisationApplication'
 	}
@@ -163,12 +174,12 @@ task customFatWar(type: War) {
 
 }
 
-bootRun {
-	dependsOn copyRestDocs
-}
 
 bootWar {
-	dependsOn copyRestDocs
+	dependsOn asciidoctor
+	from ("build/asciidoc/html5"){
+		into "static/docs"
+	}
 }
 
 java {
@@ -245,35 +256,3 @@ task integrationTest(type: Test) {
 	}
 
 }
-//
-//check.dependsOn integrationTest
-//
-//import com.bmuschko.gradle.docker.tasks.container.DockerCreateContainer
-//import com.bmuschko.gradle.docker.tasks.container.DockerStartContainer
-//import com.bmuschko.gradle.docker.tasks.container.DockerStopContainer
-//import com.bmuschko.gradle.docker.tasks.container.DockerWaitContainer
-//
-//
-//task createContainer(type: DockerCreateContainer) {
-//	dependsOn bootBuildImage
-//	targetImageId(bootBuildImage.getImageName())
-//	exposePorts('tcp', [8080])
-//
-//}
-//
-//task startContainer(type: DockerStartContainer) {
-//	dependsOn createContainer
-//	targetContainerId(createContainer.containerId)
-//}
-//
-
-//
-//task stopContainer(type: DockerStopContainer) {
-//	targetContainerId(createContainer.containerId)
-//}
-
-//integrationTest {
-//	dependsOn build
-//
-//}
-
